@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/full_screen_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/baseLinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/verticalPart1"
+            style="@style/dialogueVerticalLayoutStyle">
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal1"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Name" />
+
+                <EditText
+                    android:id="@+id/edtPriceBook"
+                    style="@style/dialogueEditTextStyle"
+
+                    android:hint="Order-Sun 15 OCT 2017"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal2"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Valid on" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin">
+
+                    <CheckBox
+                        android:id="@+id/checkBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="In Store"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal3"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Customer group" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin"
+                    android:background="@drawable/blue_border">
+
+                    <Spinner
+
+                        android:id="@+id/spCustomerGroup"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal4"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Outlet" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin"
+                    android:background="@drawable/blue_border">
+
+                    <Spinner
+                        android:id="@+id/spCustomerOutlet"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/dialogueButtonLinearLayoutStyle"
+                android:visibility="invisible">
+
+                <LinearLayout
+                    android:id="@+id/verticalPart8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/Button01"
+                        style="@style/dialogueBottomBlueButtonStyle"></Button>
+
+                    <Button
+                        android:id="@+id/Button02"
+                        style="@style/dialogueBottomOrangeButtonStyle"></Button>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/verticalPart2"
+            style="@style/dialogueVerticalLayoutStyle">
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal7"
+                style="@style/dialogueRightLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Valid from" />
+
+                <EditText
+                    android:id="@+id/edtValidFrom"
+                    style="@style/dialogueEditTextStyle"
+                    android:hint="12/09/2017" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal8"
+                style="@style/dialogueRightLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Valid to" />
+
+                <EditText
+                    android:id="@+id/edtValidTo"
+
+                    style="@style/dialogueEditTextStyle"
+
+                    android:hint="1234"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal10"
+                style="@style/dialogueRightLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Price book file" />
+
+                <Button
+                    android:id="@+id/btnAddImage"
+
+                    style="@style/dialogueEditTextStyle"
+                    android:drawableRight="@drawable/attachment_clip"
+                    android:gravity="left|center_vertical"
+                    android:paddingRight="@dimen/side_margin"
+                    android:text="Choose file" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal11"
+                style="@style/dialogueRightLayoutStyle">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="You can upload your price book using csv.\nDownload a template to get started"
+                    android:textSize="@dimen/smallTextStyle_size" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal12"
+                style="@style/dialogueButtonLinearLayoutStyle">
+
+                <LinearLayout
+                    android:id="@+id/verticalPart3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCancelPricebook"
+                        style="@style/dialogueBottomBlueButtonStyle"
+                        android:text="Cancel"></Button>
+
+                    <Button
+                        android:id="@+id/btnAddPricebook"
+                        style="@style/dialogueBottomOrangeButtonStyle"
+                        android:text="Save"></Button>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tablet_background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_login_vend" />
+
+        <TextView
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="right"
+            android:text="@string/title_sing_in"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/title_size" />
+
+
+        <LinearLayout
+
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/side_margin"
+            android:background="@drawable/rounded_view"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/drawer_margin"
+                android:layout_marginRight="@dimen/drawer_margin"
+
+                android:layout_marginTop="@dimen/drawer_margin"
+                android:backgroundTint="@color/colorGreen"
+                android:hint="@string/company"
+                android:maxLines="1" />
+
+            <EditText
+                android:id="@+id/edtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="konceptmanager"
+                android:layout_marginLeft="@dimen/drawer_margin"
+                android:layout_marginRight="@dimen/drawer_margin"
+                android:layout_marginTop="@dimen/side_margin"
+                android:backgroundTint="@color/colorGreen"
+                android:hint="@string/user_name"
+                android:maxLines="1" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/title_size"
+                android:text="konceptmanager@2017"
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/drawer_margin"
+                android:layout_marginRight="@dimen/drawer_margin"
+                android:layout_marginTop="@dimen/side_margin"
+                android:backgroundTint="@color/colorGreen"
+                android:hint="@string/password"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_login"
+            android:text="@string/btn_sign_in"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/normalTextStyle_size" />
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="@string/sign_in_trouble"
+                android:textColor="@color/colorWhite" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/dont_have_account"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/try_vend"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

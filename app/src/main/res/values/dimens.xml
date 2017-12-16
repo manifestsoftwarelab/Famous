@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="side_margin">10dp</dimen>
+    <dimen name="side_button_margin">5dp</dimen>
+    <dimen name="title_size">30sp</dimen>
+    <dimen name="drawer_text_size">20sp</dimen>
+    <dimen name="title_margin">10dp</dimen>
+    <dimen name="medium_textsize">14dp</dimen>
+    <dimen name="small_textsize">10dp</dimen>
+
+ <dimen name="drawer_margin">30dp</dimen>
+    <dimen name="fragment_margin">40dp</dimen>
+    <dimen name="fragment_top_margin">20dp</dimen>
+    <dimen name="dialog_padding">20dp</dimen>
+
+
+
+    <dimen name="normalTextStyle_size">18sp</dimen>  <!--Large Text-->
+    <dimen name="smallTextStyle_size">12sp</dimen>
+    <dimen name="mediumTextStyle_size">13sp</dimen>
+    <dimen name="extraSmallTextStyle_size">8sp</dimen>
+
+
+
+</resources>

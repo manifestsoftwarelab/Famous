@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/side_margin"
+        android:orientation="horizontal"
+        android:weightSum="7">
+
+        <TextView
+            android:id="@+id/tvItemBookName"
+
+            style="@style/MediumTextStyleGray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Price Book Name" />
+
+        <TextView
+            android:id="@+id/tvItemCustomerGroup"
+
+            style="@style/MediumTextStyleGray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:text="Customer Group" />
+
+        <TextView
+            android:id="@+id/tvItemOutlet"
+            style="@style/MediumTextStyleGray"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Outlet" />
+
+        <TextView
+            android:id="@+id/tvItemValidFrom"
+            style="@style/MediumTextStyleGray"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Valid from" />
+
+
+        <TextView
+            android:id="@+id/tvItemValidTo"
+            style="@style/MediumTextStyleGray"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Valid to" />
+
+        <TextView
+            android:id="@+id/tvItemCreatedDate"
+            style="@style/MediumTextStyleGray"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Created at" />
+    </LinearLayout>
+</LinearLayout>

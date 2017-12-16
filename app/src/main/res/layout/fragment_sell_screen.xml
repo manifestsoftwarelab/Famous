@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.2"
+                android:background="#E9EBEA"
+                android:orientation="vertical">
+
+                <ExpandableListView
+                    android:id="@+id/product_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/background_light"
+                    android:childDivider="@color/colorDarkGray"
+                    android:dividerHeight="1dp"
+                    android:groupIndicator="@null" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/product_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/background_light"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:background="#E9EBEA"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/paylist_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/payTotal"
+                        android:background="@android:color/background_light" />
+
+                    <RelativeLayout
+                        android:id="@+id/payTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="#36474E"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/totalpricetitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:text="SUB TOTAL"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/medium_textsize"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/totalprice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:text="$ 00"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/medium_textsize"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="#E9EBEA"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:id="@+id/tablay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center_vertical"
+                    android:padding="5dp">
+
+                    <Button
+                        android:id="@+id/funbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:text="FUNC" />
+
+                    <View
+                        android:id="@+id/divider1"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/funbutton"
+                        android:layout_alignTop="@+id/funbutton"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/funbutton"
+                        android:background="#E9EBEA" />
+
+                    <Button
+                        android:id="@+id/allbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/divider1"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:text="ALL" />
+
+                    <View
+                        android:id="@+id/divider2"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/allbutton"
+                        android:layout_alignTop="@+id/allbutton"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/allbutton"
+                        android:background="#E9EBEA" />
+
+                    <Button
+                        android:id="@+id/category1btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/divider2"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:text="Category1" />
+
+                    <View
+                        android:id="@+id/divider3"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/category1btn"
+                        android:layout_alignTop="@+id/category1btn"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/category1btn"
+                        android:background="#E9EBEA" />
+
+                    <Button
+                        android:id="@+id/category2btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/divider3"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:text="Category2" />
+
+                    <ImageView
+                        android:id="@+id/galleryicon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/menuicon"
+                        android:src="@android:drawable/ic_menu_add" />
+
+
+                    <ImageView
+                        android:id="@+id/menuicon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@android:drawable/ic_menu_add" />
+
+
+                </RelativeLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/productmenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tablay"></android.support.v7.widget.RecyclerView>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

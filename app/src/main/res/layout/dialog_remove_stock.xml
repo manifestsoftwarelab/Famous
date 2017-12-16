@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/baseLinear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/verticalPart1"
+            style="@style/dialogueVerticalLayoutStyle">
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal1"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Name/Reference" />
+
+                <EditText
+                    style="@style/dialogueEditTextStyle"
+                    android:text="Order-Sun 15 OCT 2017" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal2"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Deliver to" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin"
+                    android:background="@drawable/blue_border">
+
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal3"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Return from" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin"
+                    android:background="@drawable/blue_border">
+
+                    <Spinner
+                        android:id="@+id/spinner2"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal4"
+                style="@style/dialogueLeftLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Import stock return" />
+
+                <Button
+                    style="@style/dialogueEditTextStyle"
+                    android:gravity="left|center_vertical"
+                    android:drawableRight="@drawable/attachment_clip"
+                    android:paddingRight="@dimen/side_margin"
+                    android:text="Choose file" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/dialogueButtonLinearLayoutStyle"
+                android:visibility="invisible">
+
+                <LinearLayout
+                    android:id="@+id/verticalPart8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/Button01"
+                        style="@style/dialogueBottomBlueButtonStyle"></Button>
+
+                    <Button
+                        android:id="@+id/Button02"
+                        style="@style/dialogueBottomOrangeButtonStyle"></Button>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/verticalPart2"
+            style="@style/dialogueVerticalLayoutStyle">
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal7"
+                style="@style/dialogueRightLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Delivery due" />
+
+                <EditText
+                    style="@style/dialogueEditTextStyle"
+                    android:text="All"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal8"
+                style="@style/dialogueRightLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Return No."/>
+
+                <EditText
+                    style="@style/dialogueEditTextStyle"
+                    android:text="MAc-1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal9"
+                style="@style/dialogueRightLayoutStyle">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Supplier invoice"
+                    />
+
+                <EditText
+                    style="@style/dialogueEditTextStyle"
+                    android:text="All"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal10"
+                style="@style/dialogueRightLayoutStyle"
+                android:visibility="invisible">
+
+                <TextView
+                    style="@style/dialogueTextViewStyle"
+                    android:text="Import order"
+                    />
+
+                <EditText
+                    style="@style/dialogueEditTextStyle"
+                    android:text="Choose file" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/innerHorizontal12"
+                style="@style/dialogueButtonLinearLayoutStyle">
+
+                <LinearLayout
+                    android:id="@+id/verticalPart3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/Button03"
+                        style="@style/dialogueBottomBlueButtonStyle"
+                        android:text="Cancel"></Button>
+
+                    <Button
+                        android:id="@+id/Button04"
+                        style="@style/dialogueBottomOrangeButtonStyle"
+                        android:text="Save"></Button>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

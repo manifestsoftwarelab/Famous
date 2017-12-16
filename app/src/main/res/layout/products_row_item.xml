@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/side_margin"
+    android:layout_marginTop="@dimen/side_margin"
+
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="12">
+
+        <TextView
+            android:id="@+id/tvProductName"
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+
+            android:text="Product" />
+
+        <TextView
+            android:id="@+id/tvProductDate"
+
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+
+            android:text="Created" />
+
+        <TextView
+            android:id="@+id/tvProductTags"
+
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+
+            android:text="Tags" />
+
+        <TextView
+            android:id="@+id/tvProductBrand"
+
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Brand" />
+
+        <TextView
+            android:id="@+id/tvProductSupplier"
+
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Supplier" />
+
+        <TextView
+            android:id="@+id/tvProductVarient"
+
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+
+            android:text="Variants" />
+
+        <TextView
+            android:id="@+id/tvProductPrice"
+
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Price" />
+
+        <TextView
+            android:id="@+id/tvProductCount"
+
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Count" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:src="@drawable/pencil"></ImageView>
+
+        <Switch
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></Switch>
+    </LinearLayout>
+
+    <include layout="@layout/view_gray_line"></include>
+</LinearLayout>

@@ -1,0 +1,213 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/buttonSelectedBackground</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="full_screen_dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="dialogueButtonLinearLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.20</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">80dp</item>
+        <item name="android:paddingRight">40dp</item>
+    </style>
+
+    <style name="dialogueBottomBlueButtonStyle">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">top</item>
+        <item name="android:layout_marginBottom">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/rounded_blue_button</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="dialogueTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="dialogueEditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:background">@drawable/blue_border</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:paddingLeft">12dp</item>
+    </style>
+
+
+
+    <style name="closeRegisterEditTextStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/blue_border</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="colorPrimary">@color/buttonSelectedBackground</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="dialogueLeftLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.20</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">40dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="dialogueRightLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.20</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">40dp</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="dialogueVerticalLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="dialogueBottomOrangeButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">top</item>
+        <item name="android:layout_marginBottom">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:background">@drawable/rounded_orange_button</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="TitleTextStyle" parent="AppTheme">
+        <item name="android:layout_margin">@dimen/title_margin</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/title_size</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="myTitleTextStyle" parent="AppTheme">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/title_size</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="DrawerTextStyle" parent="AppTheme">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/drawer_text_size</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="NormalTextStyleGray" parent="AppTheme">
+        <!--<item name="android:layout_margin">@dimen/title_margin</item>-->
+        <item name="android:layout_margin">@dimen/side_button_margin</item>
+        <item name="android:textSize">@dimen/normalTextStyle_size</item>
+        <item name="android:textColor">@color/colorDarkGray</item>
+    </style>
+
+    <style name="MediumTextStyleGray" parent="AppTheme">
+        <!--<item name="android:layout_margin">@dimen/title_margin</item>-->
+        <item name="android:layout_marginBottom">@dimen/side_button_margin</item>
+        <item name="android:textSize">@dimen/mediumTextStyle_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorDarkGray</item>
+    </style>
+
+    <style name="buttonSelectedStyle" parent="AppTheme">
+        <item name="android:padding">@dimen/side_margin</item>
+        <item name="android:background">@color/buttonSelectedBackground</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/normalTextStyle_size</item>
+        <item name="android:textColor">@color/whiteColor</item>
+    </style>
+
+
+    <style name="buttonNonSelectedStyle" parent="AppTheme">
+        <item name="android:padding">@dimen/side_margin</item>
+        <item name="android:background">@color/buttonNotSelectedBackground</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/normalTextStyle_size</item>
+        <item name="android:textColor">@color/whiteColor</item>
+    </style>
+
+
+    <style name="spinner_style">
+        <!--<item name="android:background">@drawable/gradient_spinner</item>-->
+        <!--<item name="android:layout_marginRight">10dp</item>-->
+        <item name="android:padding">5dp</item>
+        <!--<item name="android:layout_height">40dp</item>-->
+        <item name="android:popupBackground">#DFFFFFFF</item>
+    </style>
+
+
+    <style name="textViewStyle">
+        <item name="android:textColor">@color/buttonNotSelectedBackground</item>
+        <item name="android:textSize">@dimen/normalTextStyle_size</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+
+    </style>
+
+    <style name="normalBoldTextStyle">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="normalTextStyle">
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="textViewStyleBlack">
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="smalTextStyle">
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+</resources>

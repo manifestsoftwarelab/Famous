@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorProductBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/fragment_margin"
+        android:paddingRight="@dimen/drawer_margin"
+        android:background="@color/colorTitleBackground"
+        android:weightSum="4">
+
+        <TextView
+            style="@style/NormalTextStyleGray"
+            android:layout_width="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/product_types_header" />
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/side_margin"
+            android:layout_weight="1"
+            android:gravity="end">
+
+
+            <Button
+
+                style="@style/buttonSelectedStyle"
+                android:background="@drawable/rounded_orange_button"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_add_product_type" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/side_margin"
+        android:paddingLeft="@dimen/fragment_margin"
+        android:paddingRight="@dimen/drawer_margin"
+        android:gravity="center_vertical"
+
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/textView1"
+
+            style="@style/NormalTextStyleGray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="Name"
+             />
+
+        <TextView
+            android:id="@+id/textView2"
+
+            style="@style/NormalTextStyleGray"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Number of Product"
+           />
+
+        <View
+            style="@style/NormalTextStyleGray"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:text="Number of products"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewProductList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/fragment_margin"
+        android:paddingRight="@dimen/drawer_margin"
+        android:scrollbars="vertical" />
+</LinearLayout>

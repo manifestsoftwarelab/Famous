@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorProductBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fragment_margin"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="@dimen/fragment_margin"
+        android:paddingRight="@dimen/drawer_margin"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:orientation="horizontal"></LinearLayout>
+
+        <Button
+            android:id="@+id/btnAddStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorBlack"
+            android:text="Add Stock"
+            android:textSize="@dimen/smallTextStyle_size"
+            android:textColor="@color/colorWhite"
+             />
+
+        <Button
+            android:id="@+id/btnRemoveStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorBlack"
+            android:text="Remove Stock"
+            android:textSize="@dimen/smallTextStyle_size"
+            android:textColor="@color/colorWhite"
+            />
+
+        <Button
+            android:id="@+id/btnTransferStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorBlack"
+            android:text="Transfer Stock"
+            android:textSize="@dimen/smallTextStyle_size"
+            android:textColor="@color/colorWhite"
+            />
+
+        <Button
+            android:id="@+id/btnInventoryStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorBlack"
+            android:text="Inventory Count"
+            android:textSize="@dimen/smallTextStyle_size"
+            android:textColor="@color/colorWhite"
+            />
+    </LinearLayout>
+
+    <include layout="@layout/view_gray_line"></include>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fragment_top_margin"
+        android:paddingLeft="@dimen/fragment_margin"
+        android:paddingRight="@dimen/drawer_margin"
+        android:paddingBottom="@dimen/side_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/MediumTextStyleGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Type" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin"
+                    android:background="@drawable/gradient_spinner">
+
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/MediumTextStyleGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name/Number/Product/Supplier Invoice" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin"
+                    android:background="@drawable/gradient_spinner">
+
+                    <Spinner
+                        android:id="@+id/spinner2"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/MediumTextStyleGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Type" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/side_margin"
+                    android:background="@drawable/gradient_spinner">
+
+                    <Spinner
+                        android:id="@+id/spinner3"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_weight="1"
+                android:gravity="end"
+
+
+                android:orientation="vertical">
+
+                <Button
+                    style="@style/buttonNonSelectedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:background="@drawable/rounded_blue_button"
+                    android:text="@string/btn_more_filter" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include layout="@layout/view_gray_line"></include>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="@dimen/fragment_margin"
+        android:paddingRight="@dimen/drawer_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Name"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Type"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Date"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dilevery due"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Number"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Outlet"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Source"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Status"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Items"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/normalTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total Cost"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5"></View>
+
+
+    </LinearLayout>
+
+    <include layout="@layout/view_gray_line"></include>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewProductList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="@dimen/fragment_margin"
+        android:paddingRight="@dimen/drawer_margin"
+        android:scrollbars="vertical" />
+</LinearLayout>
