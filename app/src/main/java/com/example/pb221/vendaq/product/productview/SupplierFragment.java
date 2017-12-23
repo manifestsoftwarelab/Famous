@@ -137,7 +137,7 @@ public class SupplierFragment extends Fragment implements FragmentDataObserver {
 
             }
 
-            supplierList = DB.getAllTableDetails("");
+            supplierList = DB.getAllTableDetails( "");
 
 
             supplierListAdapter = new

@@ -23,9 +23,12 @@ import com.example.pb221.vendaq.main.DatabaseHelper;
 import com.example.pb221.vendaq.main.MyApplication;
 import com.example.pb221.vendaq.main.WebCallFragment;
 import com.example.pb221.vendaq.product.productadapter.ProductListAdapter;
+import com.example.pb221.vendaq.product.productmodel.BrandPOJO;
 import com.example.pb221.vendaq.product.productmodel.OutletsPOJONew;
 import com.example.pb221.vendaq.R;
 import com.example.pb221.vendaq.product.productmodel.ProductPOJONew;
+import com.example.pb221.vendaq.product.productmodel.ProductTagsPOJO;
+import com.example.pb221.vendaq.product.productmodel.ProductTypePOJO;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +46,17 @@ import static com.example.pb221.vendaq.main.utils.Utils.getProducts;
 public class ProductListFragment extends Fragment {
 
     public ProductListAdapter productListAdapter;
+
+    private List<ProductTagsPOJO> productTagList;
+    private String[] productTags ;
+
+    private List<BrandPOJO> brandList;
+    private String[] productbrand;
+
+    private List<ProductTypePOJO> productTypeList;
+    private String[] productType;
+
+
     private List<ProductPOJONew> productList;
     private List<OutletsPOJONew> outletList;
     private RecyclerView recyclerViewProductList;
@@ -72,7 +86,37 @@ public class ProductListFragment extends Fragment {
         recyclerViewProductList.setLayoutManager(llm);
 
         productList = new ArrayList<>();
+        productTagList = new ArrayList<>();
+        brandList = new ArrayList<>();
+        productTypeList = new ArrayList<>();
         getActivity().setTitle("Products");
+
+
+        brandList = DB.getAllBrandsTableDetails("");
+        if (brandList.size() > 0) {
+            productbrand = new String[brandList.size()];
+            for (int i = 0; i < brandList.size(); i++) {
+                productbrand[i] = brandList.get(i).getBrandName();
+            }
+        }
+        productTagList = DB.getAllTags("");
+
+        if (productTagList.size() > 0) {
+            productTags = new String[productTagList.size()];
+
+            for (int i = 0; i < productTagList.size(); i++) {
+                productTags[i] = productTagList.get(i).getTagName();
+            }
+        }
+        productTypeList = DB.getAllProductType();
+
+        if (productTypeList.size() > 0) {
+            productType = new String[productTypeList.size()];
+
+            for (int i = 0; i < productTypeList.size(); i++) {
+                productType[i] = productTypeList.get(i).getProductTypeName();
+            }
+        }
 
 
         layoutActiveSales = (LinearLayout) v.findViewById(R.id.layoutActiveSales);
@@ -152,21 +196,27 @@ public class ProductListFragment extends Fragment {
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
-        Spinner spinner1 = (Spinner) v.findViewById(R.id.spinner1);
-        Spinner spinner2 = (Spinner) v.findViewById(R.id.spinner2);
-        Spinner spinner3 = (Spinner) v.findViewById(R.id.spinner3);
+        Spinner spProductType = (Spinner) v.findViewById(R.id.spProductType);
+        Spinner spProductSupplier = (Spinner) v.findViewById(R.id.spProductSupplier);
+        Spinner spProductBrand = (Spinner) v.findViewById(R.id.spProductBrand);
 
 
-        String[] values = getActivity().getResources().getStringArray(R.array.spinner_array);
+        String[] values = {"b", "b", "b", "b"};
+//        getActivity().getResources().getStringArray(R.array.spinner_array);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, values);
-        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner1.setAdapter(adapter);
-        spinner2.setAdapter(adapter);
-        spinner3.setAdapter(adapter);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, productType);
+        adapter1.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, productType);
+        adapter2.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, productbrand);
+        adapter3.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        spProductType.setAdapter(adapter1);
+        spProductSupplier.setAdapter(adapter2);
+        spProductBrand.setAdapter(adapter3);
 
 
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spProductType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
             }
@@ -177,7 +227,7 @@ public class ProductListFragment extends Fragment {
             }
         });
 
-        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spProductSupplier.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
             }
@@ -187,7 +237,7 @@ public class ProductListFragment extends Fragment {
 
             }
         });
-        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spProductBrand.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
             }

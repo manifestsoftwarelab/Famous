@@ -114,7 +114,7 @@
                         android:background="@drawable/blue_border">
 
                         <Spinner
-                            android:id="@+id/spinner1"
+                            android:id="@+id/spProductType"
                             style="@style/spinner_style"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
@@ -143,7 +143,7 @@
                         android:background="@drawable/blue_border">
 
                         <Spinner
-                            android:id="@+id/spinner2"
+                            android:id="@+id/spProductSupplier"
                             style="@style/spinner_style"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
@@ -172,7 +172,7 @@
                         android:background="@drawable/blue_border">
 
                         <Spinner
-                            android:id="@+id/spinner3"
+                            android:id="@+id/spProductBrand"
                             style="@style/spinner_style"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />

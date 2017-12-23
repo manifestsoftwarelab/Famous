@@ -196,7 +196,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.e("***insertIntoTable***", "insertion successfully");
     }
 
-    public List getAllProductType() {
+    public List<ProductTypePOJO> getAllProductType() {
 
         List<ProductTypePOJO> productTypeList =  new ArrayList<>();
         ProductTypePOJO typePOJO;
@@ -245,7 +245,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.e("***insertIntoTable***", "insertion successfully");
     }
 
-    public List getAllTags(String id) {
+    public List<ProductTagsPOJO> getAllTags(String id) {
 
 
         List<ProductTagsPOJO> tagList =  new ArrayList<>();
@@ -297,7 +297,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public List getAllBrandsTableDetails(String id) {
+    public List<BrandPOJO> getAllBrandsTableDetails(String id) {
 
         List<BrandPOJO> brandList =  new ArrayList<>();
         BrandPOJO brandPOJO;
