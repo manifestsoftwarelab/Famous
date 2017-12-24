@@ -17,12 +17,15 @@ import com.example.pb221.vendaq.main.MyApplication;
 import com.example.pb221.vendaq.main.WebCallFragment;
 import com.example.pb221.vendaq.main.utils.WebServiceCall;
 import com.example.pb221.vendaq.main.BaseActivity;
+import com.example.pb221.vendaq.product.productmodel.OutletsPOJONew;
+import com.example.pb221.vendaq.product.productmodel.ProductPOJONew;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 
 import static com.example.pb221.vendaq.main.utils.Utils.getBrands;
+import static com.example.pb221.vendaq.main.utils.Utils.getProducts;
 import static com.example.pb221.vendaq.main.utils.Utils.getSuppliers;
 import static com.example.pb221.vendaq.main.utils.Utils.getTags;
 import static com.example.pb221.vendaq.main.utils.Utils.getTypes;
@@ -37,6 +40,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
     private EditText edtPassword;
     DatabaseHelper DB;
     private String result;
+    String product_id;
     private EditText edtUserName;
 
     @Override
@@ -49,6 +53,9 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
         DB = MyApplication.getInstance(this);
         sendJsonToWebService(edtUserName.getText().toString(), edtPassword.getText().toString(), "koncept_kkd");
 
+//        Intent sInt = new Intent(LoginActivity.this, MainActivity.class);
+//        startActivity(sInt);
+//        finish();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,14 +222,104 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
                     }
                 }
             }
+
+            result = WebCallFragment.execute(getProducts, jobBrand.toString());
+
+            final JSONObject jobe = new JSONObject();
+            JSONObject myjoba = new JSONObject();
+
+            jobe.put(getResources().getString(R.string.str_key_store_id), "1");
+
+
+            if (android.os.Build.VERSION.SDK_INT > 9) {
+
+                result = WebCallFragment.execute(getProducts, jobe.toString());
+                Log.e("**result IN pd*", result + "");
+
+            }
+
+            if (checkIsError(result)) {
+                myjoba = new JSONObject(result);
+//            getAllProductListDetails
+
+                JSONArray jarr = myjoba.getJSONArray("Result");
+                JSONObject innerJob = null;
+                JSONObject outletJob = null;
+
+                for (int i = 0; i < jarr.length(); i++) {
+                    innerJob = jarr.getJSONObject(i);
+
+                    product_id = innerJob.getString("Pid");
+
+                    DB.insertIntoProductList(product_id,
+                            innerJob.getString("Name"),
+                            innerJob.getString("brandid"),
+                            innerJob.getString("brand"),
+                            innerJob.getString("handle"),
+                            innerJob.getString("description"),
+                            innerJob.getString("tags"),
+                            innerJob.getString("isSellable"),
+                            innerJob.getString("SKU"),
+                            innerJob.getString("supplierCode"),
+                            innerJob.getString("supplier"),
+                            innerJob.getString("Supplyprice"),
+                            innerJob.getString("userid"),
+                            innerJob.getString("IsInventory"),
+                            innerJob.getString("Markup"),
+                            innerJob.getString("Count"),
+                            innerJob.getString("CreatedDate"));
+
+                    JSONArray jarrOutlets = innerJob.getJSONArray("Outlets");
+
+                    for (int j = 0; j < jarrOutlets.length(); j++) {
+
+                        outletJob = jarrOutlets.getJSONObject(j);
+                        DB.insertIntoOutlets(product_id,
+                                outletJob.getString("OutletName")
+                                , outletJob.getString("CurrentInventory")
+                                , outletJob.getString("ReOrderPoint")
+                                , outletJob.getString("ReOrderQuantity"));
+
+                    }
+
+
+                    JSONArray jarrTax = innerJob.getJSONArray("Tax");
+
+                    for (int j = 0; j < jarrTax.length(); j++) {
+
+                        outletJob = jarrTax.getJSONObject(j);
+
+                        DB.insertIntoTax(product_id,
+                                outletJob.getString("Outlet"),
+                                outletJob.getString("Tax"));
+                    }
+
+                    JSONArray jarrVarients = innerJob.getJSONArray("Varients");
+
+                    for (int j = 0; j < jarrVarients.length(); j++) {
+
+                        outletJob = jarrVarients.getJSONObject(j);
+                        DB.insertIntoVarient(product_id,
+                                outletJob.getString("VariantName"),
+                                outletJob.getString("VariantCount"),
+                                outletJob.getString("SupplierCode"),
+                                outletJob.getString("SupplierPrice"),
+                                outletJob.getString("RetailPrice"));
+                    }
+
+                }
+
+
+//                DB.insertIntoProductList(pid, Name, brandid, brand, handle, description,
+//                        tags, isSellable, SKU, supplierCode, supplier, Supplyprice,
+//                        userid, IsInventory, Markup, Count, CreatedDate);
+
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         hideDelayIndicator();
-
-        Intent sInt = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(sInt);
-        finish();
 
 
     }

@@ -8,6 +8,16 @@ public class OutletsPOJONew {
   String  OutletName;
   String  CurrentInventory;
 
+    public OutletsPOJONew(String outletName, String currentInventory, String reOrderPoint, String reOrderQuantity) {
+        OutletName = outletName;
+        CurrentInventory = currentInventory;
+        ReOrderPoint = reOrderPoint;
+        ReOrderQuantity = reOrderQuantity;
+    }
+
+    public OutletsPOJONew() {
+    }
+
     public String getOutletName() {
         return OutletName;
     }

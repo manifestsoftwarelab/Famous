@@ -15,10 +15,14 @@ import static com.example.pb221.vendaq.main.utils.Utils.COLUMN_BRAND_NUMBER_OF_P
 import static com.example.pb221.vendaq.main.utils.Utils.TABLE_BRANDS_DETAILS;
 
 import com.example.pb221.vendaq.product.productmodel.BrandPOJO;
+import com.example.pb221.vendaq.product.productmodel.OutletsPOJONew;
+import com.example.pb221.vendaq.product.productmodel.ProductPOJONew;
 import com.example.pb221.vendaq.product.productmodel.SupplierPOJO;
 import com.example.pb221.vendaq.product.productmodel.ProductTagsPOJO;
 import com.example.pb221.vendaq.product.productmodel.ProductTypePOJO;
 import com.example.pb221.vendaq.main.utils.Utils;
+import com.example.pb221.vendaq.product.productmodel.TaxPOJONew;
+import com.example.pb221.vendaq.product.productmodel.VarientsPOJONew;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,21 +96,63 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String CREATE_PRODUCT_LIST = "CREATE TABLE " + TABLE_PRODUCT_LIST + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COLUMN_BRAND_ID + " TEXT, "
-                + COLUMN_BRAND_NAME + " TEXT, "
-                + COLUMN_BRAND_DESCRIPTION + " TEXT, "
-                + COLUMN_BRAND_NUMBER_OF_PRODUCT + " TEXT )";
+                + COLUMN_PRODUCT_ID + " TEXT, "
+                + COLUMN_PRODUCT_NAME + " TEXT, "
+                + COLUMN_PRODUCT_BRAND_ID + " TEXT, "
+                + COLUMN_PRODUCT_BRAND_NAME + " TEXT, "
+                + COLUMN_HANDLE + " TEXT, "
+                + COLUMN_DESCRIPTION + " TEXT, "
+                + COLUMN_TAGS + " TEXT, "
+                + COLUMN_ISSELLABLE + " TEXT, "
+                + COLUMN_SKU + " TEXT, "
+                + COLUMN_PRODUCT_SUPPLIER_CODE + " TEXT, "
+                + COLUMN_PRODUCT_SUPPLIER_NAME + " TEXT, "
+                + COLUMN_SUPPLY_PRICE + " TEXT, "
+                + COLUMN_USER_ID + " TEXT, "
+                + COLUMN_IS_INVENTORY + " TEXT, "
+                + COLUMN_MARKUP + " TEXT, "
+                + COLUMN_COUNT + " TEXT, "
+                + COLUMN_CREATED_DATE + " TEXT )";
 
 
         Log.d("onCreate ", "onCreate: " + CREATE_PRODUCT_LIST);
         db.execSQL(CREATE_PRODUCT_LIST);
 
 
+        String CREATE_OUTLETS_DETAILS = "CREATE TABLE " + TABLE_OUTLETS_DETAILS + " ("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_PRODUCT_ID + " TEXT, "
+                + COLUMN_OUTLET_NAME + " TEXT, "
+                + COLUMN_CURRENT_INVENTORY + " TEXT, "
+                + COLUMN_REORDER_POINT + " TEXT, "
+                + COLUMN_REORDER_QUANTITY + " TEXT )";
+
+        Log.d("onCreate ", "onCreate: " + CREATE_OUTLETS_DETAILS);
+        db.execSQL(CREATE_OUTLETS_DETAILS);
 
 
+        String CREATE_TAX_DETAILS = "CREATE TABLE " + TABLE_TAX_DETAILS + " ("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_PRODUCT_ID + " TEXT, "
+                + COLUMN_TAX_OUTLET + " TEXT, "
+                + COLUMN_TAX + " TEXT )";
+
+        Log.d("onCreate ", "onCreate: " + CREATE_TAX_DETAILS);
+        db.execSQL(CREATE_TAX_DETAILS);
+
+
+        String CREATE_VARIENTS_DETAILS = "CREATE TABLE " + TABLE_VARIENTS_DETAILS + " ("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_PRODUCT_ID + " TEXT, "
+                + COLUMN_VARIENT_NAME + " TEXT, "
+                + COLUMN_VARIENT_COUNT + " TEXT, "
+                + COLUMN_SUPPLIER_CODE + " TEXT, "
+                + COLUMN_SUPPLIER_PRICE + " TEXT, "
+                + COLUMN_RETAIL_PRICE + " TEXT )";
+
+        Log.d("onCreate ", "onCreate: " + CREATE_VARIENTS_DETAILS);
+        db.execSQL(CREATE_VARIENTS_DETAILS);
     }
-
-
 
 
     @Override
@@ -136,7 +182,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List getAllTableDetails(String id) {
 
-        List<SupplierPOJO> supplierList =  new ArrayList<>();
+        List<SupplierPOJO> supplierList = new ArrayList<>();
         SupplierPOJO suplierPOJO;
         SQLiteDatabase db = this.getReadableDatabase();
 //        String query = "SELECT  * FROM " + TABLE_SUPPLIER_DETAILS + " WHERE PRODUCT_ID = '" + id + "'";
@@ -198,7 +244,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<ProductTypePOJO> getAllProductType() {
 
-        List<ProductTypePOJO> productTypeList =  new ArrayList<>();
+        List<ProductTypePOJO> productTypeList = new ArrayList<>();
         ProductTypePOJO typePOJO;
         SQLiteDatabase db = this.getReadableDatabase();
 //        String query = "SELECT  * FROM " + TABLE_SUPPLIER_DETAILS + " WHERE PRODUCT_ID = '" + id + "'";
@@ -211,12 +257,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (!cursor.isAfterLast()) {
 
 
-
                 String TypeId = cursor.getString(cursor.getColumnIndex(COLUMN_TYPE_ID));
                 String TypeName = cursor.getString(cursor.getColumnIndex(COLUMN_TYPE_NAME));
                 String NumberOfProduct = cursor.getString(cursor.getColumnIndex(COLUMN_SUPPLIER_NUMBER_OF_PRODUCT));
 
-                typePOJO = new ProductTypePOJO(TypeId,TypeName,NumberOfProduct);
+                typePOJO = new ProductTypePOJO(TypeId, TypeName, NumberOfProduct);
 
                 productTypeList.add(typePOJO);
 
@@ -248,7 +293,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<ProductTagsPOJO> getAllTags(String id) {
 
 
-        List<ProductTagsPOJO> tagList =  new ArrayList<>();
+        List<ProductTagsPOJO> tagList = new ArrayList<>();
         ProductTagsPOJO tagPOJO;
         SQLiteDatabase db = this.getReadableDatabase();
 //        String query = "SELECT  * FROM " + TABLE_SUPPLIER_DETAILS + " WHERE PRODUCT_ID = '" + id + "'";
@@ -261,12 +306,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (!cursor.isAfterLast()) {
 
 
-
                 String TagId = cursor.getString(cursor.getColumnIndex(COLUMN_TAG_ID));
                 String TagName = cursor.getString(cursor.getColumnIndex(COLUMN_TAG_NAME));
                 String NumberOfProduct = cursor.getString(cursor.getColumnIndex(COLUMN_SUPPLIER_NUMBER_OF_PRODUCT));
 
-                tagPOJO = new ProductTagsPOJO(TagId,TagName,NumberOfProduct);
+                tagPOJO = new ProductTagsPOJO(TagId, TagName, NumberOfProduct);
 
                 tagList.add(tagPOJO);
 
@@ -294,12 +338,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_BRANDS_DETAILS, null, valuess);
         db.close();
         Log.e("***insertIntoTable***", "insertion successfully");
+        db.close();
     }
 
 
     public List<BrandPOJO> getAllBrandsTableDetails(String id) {
 
-        List<BrandPOJO> brandList =  new ArrayList<>();
+        List<BrandPOJO> brandList = new ArrayList<>();
         BrandPOJO brandPOJO;
         SQLiteDatabase db = this.getReadableDatabase();
 //        String query = "SELECT  * FROM " + TABLE_SUPPLIER_DETAILS + " WHERE PRODUCT_ID = '" + id + "'";
@@ -335,4 +380,243 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return brandList;
     }
+
+
+    public void insertIntoProductList(String pid, String Name, String brandid, String brand, String handle, String description,
+                                      String tags, String isSellable, String SKU, String supplierCode, String supplier, String Supplyprice,
+                                      String userid, String IsInventory, String Markup, String Count, String CreatedDate) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuess = new ContentValues();
+
+
+        valuess.put(COLUMN_PRODUCT_ID, pid);
+        valuess.put(COLUMN_PRODUCT_NAME, Name);
+        valuess.put(COLUMN_PRODUCT_BRAND_ID, brandid);
+        valuess.put(COLUMN_PRODUCT_BRAND_NAME, brand);
+        valuess.put(COLUMN_HANDLE, handle);
+        valuess.put(COLUMN_DESCRIPTION, description);
+        valuess.put(COLUMN_TAGS, tags);
+        valuess.put(COLUMN_ISSELLABLE, isSellable);
+        valuess.put(COLUMN_SKU, SKU);
+        valuess.put(COLUMN_PRODUCT_SUPPLIER_CODE, supplierCode);
+        valuess.put(COLUMN_PRODUCT_SUPPLIER_NAME, supplier);
+        valuess.put(COLUMN_SUPPLY_PRICE, Supplyprice);
+        valuess.put(COLUMN_USER_ID, userid);
+        valuess.put(COLUMN_IS_INVENTORY, IsInventory);
+        valuess.put(COLUMN_MARKUP, Markup);
+        valuess.put(COLUMN_COUNT, Count);
+        valuess.put(COLUMN_CREATED_DATE, CreatedDate);
+
+
+        db.insert(TABLE_PRODUCT_LIST, null, valuess);
+        db.close();
+        Log.e("***insertIntoTable***", "insertion successfully");
+    }
+
+
+    public List<ProductPOJONew> getAllProductListDetails() {
+
+        List<ProductPOJONew> productList = new ArrayList<>();
+        ProductPOJONew productPOJO;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT  * FROM " + TABLE_PRODUCT_LIST;
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor != null) {
+            Log.d("EMessanger..", "Reading Records");
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+
+
+                String productId = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_ID));
+                String productName = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_NAME));
+                String productBrandId = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_BRAND_ID));
+                String productBrandName = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_BRAND_NAME));
+                String productHandle = cursor.getString(cursor.getColumnIndex(COLUMN_HANDLE));
+                String productDescription = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION));
+                String productTags = cursor.getString(cursor.getColumnIndex(COLUMN_TAGS));
+                String productIsSellable = cursor.getString(cursor.getColumnIndex(COLUMN_ISSELLABLE));
+                String productSKU = cursor.getString(cursor.getColumnIndex(COLUMN_SKU));
+                String productSupplierCode = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_SUPPLIER_CODE));
+                String productSupplierName = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_SUPPLIER_NAME));
+                String productSupplyPrice = cursor.getString(cursor.getColumnIndex(COLUMN_SUPPLY_PRICE));
+                String productUserId = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID));
+                String productIsInventory = cursor.getString(cursor.getColumnIndex(COLUMN_IS_INVENTORY));
+                String productIsMarkUp = cursor.getString(cursor.getColumnIndex(COLUMN_MARKUP));
+                String productCount = cursor.getString(cursor.getColumnIndex(COLUMN_COUNT));
+                String productCreatedDate = cursor.getString(cursor.getColumnIndex(COLUMN_CREATED_DATE));
+
+                List<OutletsPOJONew> outletlist = getAllOutletsInProductList(productId);
+                List<VarientsPOJONew> varientlist = getAllVarientsInProductList(productId);
+                List<TaxPOJONew> taxList = getAllTaxInProductList(productId);
+
+
+                productPOJO = new ProductPOJONew(productId, outletlist, taxList, varientlist, productName,
+                        productBrandId, productBrandName, productHandle, productDescription,
+                        productTags, "", productIsSellable, productSKU, productSupplierCode,
+                        productSupplierName, productSupplyPrice, productUserId, productIsInventory,
+                        productIsMarkUp, productCount, productCreatedDate);
+
+
+                productList.add(productPOJO);
+
+                cursor.moveToNext();
+
+            }
+
+        } else {
+            Log.d("EMessanger..", "Cursor is null");
+        }
+        return productList;
+    }
+
+
+    public void insertIntoOutlets(String pid, String OutletName, String CurrentInventory, String ReOrderPoint, String ReOrderQuantity) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuess = new ContentValues();
+        valuess.put(COLUMN_PRODUCT_ID, pid);
+        valuess.put(COLUMN_OUTLET_NAME, OutletName);
+        valuess.put(COLUMN_CURRENT_INVENTORY, CurrentInventory);
+        valuess.put(COLUMN_REORDER_POINT, ReOrderPoint);
+        valuess.put(COLUMN_REORDER_QUANTITY, ReOrderQuantity);
+
+        db.insert(TABLE_OUTLETS_DETAILS, null, valuess);
+        db.close();
+        Log.e("***insertIntoTable***", "insertion successfully");
+    }
+
+
+    public void insertIntoTax(String pid, String Outlet, String Tax) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuess = new ContentValues();
+        valuess.put(COLUMN_PRODUCT_ID, pid);
+
+        valuess.put(COLUMN_TAX_OUTLET, Outlet);
+        valuess.put(COLUMN_TAX, Tax);
+
+        db.insert(TABLE_TAX_DETAILS, null, valuess);
+        db.close();
+        Log.e("***insertIntoTable***", "insertion successfully");
+    }
+
+
+    public void insertIntoVarient(String pid, String VariantName, String VariantCount, String SupplierCode, String SupplierPrice, String RetailPrice) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuess = new ContentValues();
+
+        valuess.put(COLUMN_VARIENT_NAME, VariantName);
+        valuess.put(COLUMN_PRODUCT_ID, pid);
+        valuess.put(COLUMN_VARIENT_COUNT, VariantCount);
+        valuess.put(COLUMN_SUPPLIER_CODE, SupplierCode);
+        valuess.put(COLUMN_SUPPLIER_PRICE, SupplierPrice);
+        valuess.put(COLUMN_RETAIL_PRICE, RetailPrice);
+
+        db.insert(TABLE_VARIENTS_DETAILS, null, valuess);
+        db.close();
+        Log.e("***insertIntoTable***", "insertion successfully");
+    }
+
+
+    public List<OutletsPOJONew> getAllOutletsInProductList(String id) {
+
+        List<OutletsPOJONew> outletList = new ArrayList<>();
+
+        OutletsPOJONew outletPOJO;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT  * FROM " + TABLE_OUTLETS_DETAILS + " where Pid = '" + id + "'";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor != null) {
+            Log.d("EMessanger..", "Reading Records");
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+
+
+                String outletName = cursor.getString(cursor.getColumnIndex(COLUMN_OUTLET_NAME));
+                String currentInventory = cursor.getString(cursor.getColumnIndex(COLUMN_CURRENT_INVENTORY));
+                String reorderPoint = cursor.getString(cursor.getColumnIndex(COLUMN_REORDER_POINT));
+                String reorderQuantity = cursor.getString(cursor.getColumnIndex(COLUMN_REORDER_QUANTITY));
+
+                outletPOJO = new OutletsPOJONew(outletName, currentInventory, reorderPoint, reorderQuantity);
+
+                outletList.add(outletPOJO);
+
+                cursor.moveToNext();
+
+            }
+
+        } else {
+        }
+        return outletList;
+    }
+
+    public List<TaxPOJONew> getAllTaxInProductList(String id) {
+
+        List<TaxPOJONew> taxList = new ArrayList<>();
+
+        TaxPOJONew taxPOJO;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT  * FROM " + TABLE_TAX_DETAILS + " where Pid = '" + id + "'";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor != null) {
+            Log.d("EMessanger..", "Reading Records");
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+
+
+                String taxOutlets = cursor.getString(cursor.getColumnIndex(COLUMN_TAX_OUTLET));
+                String tax = cursor.getString(cursor.getColumnIndex(COLUMN_TAX));
+
+                taxPOJO = new TaxPOJONew(taxOutlets, tax);
+
+                taxList.add(taxPOJO);
+
+                cursor.moveToNext();
+
+            }
+
+        } else {
+        }
+        return taxList;
+    }
+
+    public List<VarientsPOJONew> getAllVarientsInProductList(String id) {
+
+        List<VarientsPOJONew> varientList = new ArrayList<>();
+
+        VarientsPOJONew varientPOJO;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT  * FROM " + TABLE_VARIENTS_DETAILS + " where Pid = '" + id + "'";
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor != null) {
+            Log.d("EMessanger..", "Reading Records");
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+
+
+                String varientName = cursor.getString(cursor.getColumnIndex(COLUMN_VARIENT_NAME));
+                String varientCount = cursor.getString(cursor.getColumnIndex(COLUMN_VARIENT_COUNT));
+                String supplierCode = cursor.getString(cursor.getColumnIndex(COLUMN_SUPPLIER_CODE));
+                String supplierPrice = cursor.getString(cursor.getColumnIndex(COLUMN_SUPPLIER_PRICE));
+                String retailPrice = cursor.getString(cursor.getColumnIndex(COLUMN_RETAIL_PRICE));
+
+                varientPOJO = new VarientsPOJONew(varientName, varientCount, supplierCode, supplierPrice, retailPrice);
+
+                varientList.add(varientPOJO);
+
+                cursor.moveToNext();
+
+            }
+
+        } else {
+        }
+        return varientList;
+    }
+
 }

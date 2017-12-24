@@ -9,6 +9,14 @@ public class VarientsPOJONew {
     String VariantCount;
     String SupplierCode;
 
+    public VarientsPOJONew(String variantName, String variantCount, String supplierCode, String supplierPrice, String retailPrice) {
+        VariantName = variantName;
+        VariantCount = variantCount;
+        SupplierCode = supplierCode;
+        SupplierPrice = supplierPrice;
+        RetailPrice = retailPrice;
+    }
+
     public String getVariantName() {
         return VariantName;
     }

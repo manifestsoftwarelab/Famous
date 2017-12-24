@@ -24,7 +24,7 @@ public class Utils {
     public static String addProducts = baseUrl + "?action=AddProduct";
 
 
-    public static String DATABASE_NAME = "VendaHQ1.db";
+    public static String DATABASE_NAME = "VendaHQ.db";
     public static final int DATABASE_VERSION = 1;
     public static String DATABASE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/VendaHQ/";
 
@@ -57,8 +57,31 @@ public class Utils {
     public static String COLUMN_BRAND_DESCRIPTION = "BrandDescription";
     public static String COLUMN_BRAND_NUMBER_OF_PRODUCT = "NumberOfProducts";
 
+    public static String TABLE_OUTLETS_DETAILS = "OUTLETS_DETAILS";
+
+    public static String COLUMN_OUTLET_NAME = "OutletName";
+    public static String COLUMN_CURRENT_INVENTORY = "CurrentInventory";
+    public static String COLUMN_REORDER_POINT = "ReOrderPoint";
+    public static String COLUMN_REORDER_QUANTITY = "ReOrderQuantity";
+
+
+    public static String TABLE_TAX_DETAILS = "TAX_DETAILS";
+
+    public static String COLUMN_TAX_OUTLET = "Outlet";
+    public static String COLUMN_TAX= "tAX";
+
+
+    public static String TABLE_VARIENTS_DETAILS = "VARIENTS_DETAILS";
+
+    public static String COLUMN_VARIENT_NAME = "VariantName";
+    public static String COLUMN_VARIENT_COUNT = "VariantCount";
+    public static String COLUMN_SUPPLIER_CODE = "SupplierCode";
+    public static String COLUMN_SUPPLIER_PRICE = "SupplierPrice";
+    public static String COLUMN_RETAIL_PRICE= "RetailPrice";
+
 
     public static String TABLE_PRODUCT_LIST = "PRODUCT_LIST";
+
     public static String COLUMN_PRODUCT_ID = "Pid";
     public static String COLUMN_PRODUCT_NAME = "Name";
     public static String COLUMN_PRODUCT_BRAND_ID = "brandid";

@@ -153,6 +153,7 @@
     <string name="str_key_password">password</string>
     <string name="str_key_storename">storename</string>
     <string name="str_key_storeid">storeid</string>
+    <string name="str_key_store_id">store_id</string>
     <string name="str_key_productid">productid</string>
     <string name="str_key_categoryid">categoryid</string>
 

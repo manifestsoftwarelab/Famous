@@ -36,8 +36,6 @@ public class BrandFragment extends Fragment {
     DatabaseHelper DB;
     public BrandAdapter brandListAdapter;
     private List<BrandPOJO> brandList;
-
-
     private RecyclerView recyclerViewProductList;
 
 

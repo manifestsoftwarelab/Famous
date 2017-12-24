@@ -14,6 +14,33 @@ public class ProductPOJONew {
     List<VarientsPOJONew> varientsItems;
     String Name;
     String brandid;
+
+    public ProductPOJONew(String pid, List<OutletsPOJONew> outletsItems, List<TaxPOJONew> taxItems, List<VarientsPOJONew> varientsItems, String name,
+                          String brandid, String brand, String handle, String description, String tags, String standard, String isSellable, String SKU,
+                          String supplierCode, String supplier, String supplyprice, String userid, String isInventory, String markup, String count, String createdDate) {
+        Pid = pid;
+        this.outletsItems = outletsItems;
+        this.taxItems = taxItems;
+        this.varientsItems = varientsItems;
+        Name = name;
+        this.brandid = brandid;
+        this.brand = brand;
+        this.handle = handle;
+        this.description = description;
+        this.tags = tags;
+        Standard = standard;
+        this.isSellable = isSellable;
+        this.SKU = SKU;
+        this.supplierCode = supplierCode;
+        this.supplier = supplier;
+        Supplyprice = supplyprice;
+        this.userid = userid;
+        IsInventory = isInventory;
+        Markup = markup;
+        Count = count;
+        CreatedDate = createdDate;
+    }
+
     String brand;
     String handle;
     String description;
@@ -25,6 +52,13 @@ public class ProductPOJONew {
     String supplier;
     String Supplyprice;
     String userid;
+    String IsInventory;
+    String Markup;
+    String Count;
+    String CreatedDate;
+
+    public ProductPOJONew() {
+    }
 
     public String getIsSellable() {
         return isSellable;
@@ -42,10 +76,6 @@ public class ProductPOJONew {
         IsInventory = isInventory;
     }
 
-    String IsInventory;
-    String Markup;
-    String Count;
-    String CreatedDate;
 
     public String getMarkup() {
         return Markup;
@@ -201,9 +231,6 @@ public class ProductPOJONew {
     public void setUserid(String userid) {
         this.userid = userid;
     }
-
-
-
 
 
 }

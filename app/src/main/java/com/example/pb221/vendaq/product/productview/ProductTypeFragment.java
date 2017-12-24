@@ -88,7 +88,7 @@ public class ProductTypeFragment extends Fragment {
                 Log.e("**result IN SU*", result + "");
 
             }
-            getDataFromActivity(result);
+             getDataFromActivity(result);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -92,6 +92,8 @@ public class ProductListFragment extends Fragment {
         getActivity().setTitle("Products");
 
 
+
+
         brandList = DB.getAllBrandsTableDetails("");
         if (brandList.size() > 0) {
             productbrand = new String[brandList.size()];
@@ -117,6 +119,13 @@ public class ProductListFragment extends Fragment {
                 productType[i] = productTypeList.get(i).getProductTypeName();
             }
         }
+
+        productList = DB.getAllProductListDetails();
+
+
+
+        productListAdapter = new ProductListAdapter(productList, getActivity());
+        recyclerViewProductList.setAdapter(productListAdapter);
 
 
         layoutActiveSales = (LinearLayout) v.findViewById(R.id.layoutActiveSales);
@@ -302,7 +311,7 @@ public class ProductListFragment extends Fragment {
 
             String isError = job.getString("IsError");
             if (isError.equalsIgnoreCase("0")) {
-                updateUI(job);
+//                updateUI(job);
             }
 
         } catch (Exception e) {

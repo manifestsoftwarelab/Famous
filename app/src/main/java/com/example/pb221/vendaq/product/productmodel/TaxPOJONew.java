@@ -5,6 +5,11 @@ package com.example.pb221.vendaq.product.productmodel;
  */
 
 public class TaxPOJONew {
+    public TaxPOJONew(String outlet, String tax) {
+        Outlet = outlet;
+        Tax = tax;
+    }
+
     public String getOutlet() {
         return Outlet;
     }
