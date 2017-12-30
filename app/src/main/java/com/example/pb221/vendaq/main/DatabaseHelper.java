@@ -17,6 +17,7 @@ import static com.example.pb221.vendaq.main.utils.Utils.TABLE_BRANDS_DETAILS;
 import com.example.pb221.vendaq.product.productmodel.BrandPOJO;
 import com.example.pb221.vendaq.product.productmodel.OutletsPOJONew;
 import com.example.pb221.vendaq.product.productmodel.ProductPOJONew;
+import com.example.pb221.vendaq.product.productmodel.StockControlPOJO;
 import com.example.pb221.vendaq.product.productmodel.SupplierPOJO;
 import com.example.pb221.vendaq.product.productmodel.ProductTagsPOJO;
 import com.example.pb221.vendaq.product.productmodel.ProductTypePOJO;
@@ -44,6 +45,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        try {
 
         String CREATE_SUPPLIER_DETAILS = "CREATE TABLE " + TABLE_SUPPLIER_DETAILS + " ("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -152,6 +155,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Log.d("onCreate ", "onCreate: " + CREATE_VARIENTS_DETAILS);
         db.execSQL(CREATE_VARIENTS_DETAILS);
+
+
+
+        String CREATE_STOCK_LIST = "CREATE TABLE " + TABLE_STOCK_LIST + " ("
+                + COLUMN_STOCK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_STOCK_NAME + " TEXT, "
+                + COLUMN_STOCK_USER_ID + " TEXT, "
+                + COLUMN_STOCK_TYPE + " TEXT, "
+                + COLUMN_STOCK_DATE + " TEXT, "
+                + COLUMN_STOCK_DELIVERY_DATE + " TEXT, "
+                + COLUMN_STOCK_NUMBER + " TEXT, "
+                + COLUMN_STOCK_OUTLET + " TEXT, "
+                + COLUMN_STOCK_SOURCE + " TEXT, "
+                + COLUMN_STOCK_STATUS + " TEXT, "
+                + COLUMN_STOCK_ITEMS + " TEXT, "
+                + COLUMN_STOCK_TOTALCOST + " TEXT, "
+                + COLUMN_STOCK_SKU + " TEXT, "
+                + COLUMN_STOCK_HANDLE + " TEXT, "
+                + COLUMN_STOCK_SUPPLIERCODE  + " TEXT )";
+
+        Log.d("onCreate ", "onCreate: " + CREATE_STOCK_LIST);
+        db.execSQL(CREATE_STOCK_LIST);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -341,6 +369,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void deleteFromBrand()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_BRANDS_DETAILS;
+        db.execSQL(query);
+    }
 
     public List<BrandPOJO> getAllBrandsTableDetails(String id) {
 
@@ -527,7 +561,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         OutletsPOJONew outletPOJO;
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT  * FROM " + TABLE_OUTLETS_DETAILS + " where Pid = '" + id + "'";
+        String query;
+        if (id != "") {
+             query = "SELECT  * FROM " + TABLE_OUTLETS_DETAILS + " where Pid = '" + id + "'";
+        }
+        else
+        {
+            query = "SELECT  * FROM " + TABLE_OUTLETS_DETAILS;
+        }
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor != null) {
@@ -619,4 +660,87 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return varientList;
     }
 
+    public void insertIntoStockControl(String StockId, String StockName, String UserId, String StockType, String Date, String DeliveryDate, String Number, String Outlet, String Source , String Status, String Items, String TotalCost, String SKU, String Handle, String SupplierCode) {
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuess = new ContentValues();
+
+        valuess.put(COLUMN_STOCK_ID, StockId);
+        valuess.put(COLUMN_STOCK_NAME, StockName);
+        valuess.put(COLUMN_STOCK_USER_ID, UserId);
+        valuess.put(COLUMN_STOCK_TYPE , StockType);
+        valuess.put(COLUMN_STOCK_DATE, Date);
+        valuess.put(COLUMN_STOCK_DELIVERY_DATE, DeliveryDate);
+        valuess.put(COLUMN_STOCK_NUMBER, Number);
+        valuess.put(COLUMN_STOCK_OUTLET, Outlet);
+        valuess.put(COLUMN_STOCK_SOURCE, Source);
+        valuess.put(COLUMN_STOCK_STATUS, Status);
+        valuess.put(COLUMN_STOCK_ITEMS, Items);
+        valuess.put(COLUMN_STOCK_TOTALCOST, TotalCost);
+        valuess.put(COLUMN_STOCK_SKU, SKU);
+        valuess.put(COLUMN_STOCK_HANDLE, Handle);
+        valuess.put(COLUMN_STOCK_SUPPLIERCODE, SupplierCode);
+
+        db.insert(TABLE_STOCK_LIST, null, valuess);
+        db.close();
+        Log.e("***insertIntoTable***", "insertion successfully");
+    }
+
+    public List getAllStockDetails(String id) {
+
+        List<StockControlPOJO> stockList = new ArrayList<>();
+        StockControlPOJO stockPOJO;
+        SQLiteDatabase db = this.getReadableDatabase();
+//        String query = "SELECT  * FROM " + TABLE_SUPPLIER_DETAILS + " WHERE PRODUCT_ID = '" + id + "'";
+        String query = "SELECT  * FROM " + TABLE_STOCK_LIST;
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor != null) {
+            Log.d("EMessanger..", "Reading Records");
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+
+                String StockId = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_ID));;
+                String StockName = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_NAME));;
+                String UserId = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_USER_ID));;
+                String StockType = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_TYPE));;
+                String Date = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_DATE));;
+                String DeliveryDate = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_DELIVERY_DATE));;
+                String Number = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_NUMBER));;
+                String Outlet = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_OUTLET));;
+                String Source = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_SOURCE));;
+                String Status = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_STATUS));;
+                String Items = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_ITEMS));;
+                String TotalCost = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_TOTALCOST));;
+                String SKU = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_SKU));;
+                String Handle = cursor.getString(cursor.getColumnIndex(COLUMN_STOCK_HANDLE));;
+                String SupplierCode = cursor.getString(cursor.getColumnIndex(COLUMN_SUPPLIER_CODE));;
+
+                stockPOJO = new StockControlPOJO(StockId,StockName,UserId,StockType,Date,DeliveryDate,Number,Outlet,Source,Status,Items,TotalCost,SKU,Handle,SupplierCode);
+
+                stockList.add(stockPOJO);
+
+                cursor.moveToNext();
+
+            }
+
+        } else {
+            Log.d("EMessanger..", "Cursor is null");
+        }
+        return stockList;
+    }
+
+    public void deleteFromStockControl()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_STOCK_LIST;
+        db.execSQL(query);
+    }
+    public void deleteFromTable(String table)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + table;
+        db.execSQL(query);
+    }
 }

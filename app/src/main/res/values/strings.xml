@@ -157,7 +157,14 @@
     <string name="str_key_productid">productid</string>
     <string name="str_key_categoryid">categoryid</string>
 
-
+    <string name="str_key_userId">UserId</string>
+    <string name="str_key_stockName">StockName</string>
+    <string name="str_key_deliveryDue">DeliveryDue</string>
+    <string name="str_key_orderFrom">OrderFrom</string>
+    <string name="str_key_orderNo">OrderNo</string>
+    <string name="str_key_deliverTo">DeliverTo</string>
+    <string name="str_key_supplierInvoice">SupplierInvoice</string>
+    <string name="str_key_autoFill">AutoFill</string>
 
     <string name="delay_ind_retrieving_data">Retriving Data</string>
     <!--<string name="str_key_username">username</string>-->

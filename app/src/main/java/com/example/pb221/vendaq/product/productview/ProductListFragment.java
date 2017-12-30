@@ -71,7 +71,6 @@ public class ProductListFragment extends Fragment {
     private TextView textvwActive, textvwInActive, textvwAll;
     private View viewActive, viewInActive, viewAll;
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -90,9 +89,6 @@ public class ProductListFragment extends Fragment {
         brandList = new ArrayList<>();
         productTypeList = new ArrayList<>();
         getActivity().setTitle("Products");
-
-
-
 
         brandList = DB.getAllBrandsTableDetails("");
         if (brandList.size() > 0) {
@@ -122,8 +118,6 @@ public class ProductListFragment extends Fragment {
 
         productList = DB.getAllProductListDetails();
 
-
-
         productListAdapter = new ProductListAdapter(productList, getActivity());
         recyclerViewProductList.setAdapter(productListAdapter);
 
@@ -132,7 +126,7 @@ public class ProductListFragment extends Fragment {
         layoutInactiveSales = (LinearLayout) v.findViewById(R.id.layoutInactiveSales);
         layoutAllSales = (LinearLayout) v.findViewById(R.id.layoutAllSales);
 
-        textvwActive = (TextView) v.findViewById(R.id.textvwActive);
+        textvwActive = (TextView)    v.findViewById(R.id.textvwActive);
         textvwInActive = (TextView) v.findViewById(R.id.textvwInActive);
         textvwAll = (TextView) v.findViewById(R.id.textvwAll);
 
@@ -256,8 +250,6 @@ public class ProductListFragment extends Fragment {
 
             }
         });
-
-
 
         /* product adapter list*/
         btn_addProduct.setOnClickListener(new View.OnClickListener() {

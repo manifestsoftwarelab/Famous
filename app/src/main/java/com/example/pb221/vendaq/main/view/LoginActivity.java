@@ -24,6 +24,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_OUTLETS_DETAILS;
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_PRODUCT_LIST;
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_PRODUCT_TYPE;
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_SUPPLIER_DETAILS;
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_TAGS;
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_TAX_DETAILS;
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_VARIENTS_DETAILS;
 import static com.example.pb221.vendaq.main.utils.Utils.getBrands;
 import static com.example.pb221.vendaq.main.utils.Utils.getProducts;
 import static com.example.pb221.vendaq.main.utils.Utils.getSuppliers;
@@ -127,6 +134,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
                     JSONArray jarr = myJob.getJSONArray("Result");
                     JSONObject innerJob = null;
 
+                    DB.deleteFromTable(TABLE_PRODUCT_TYPE);
                     for (int i = 0; i < jarr.length(); i++) {
                         innerJob = jarr.getJSONObject(i);
 
@@ -152,6 +160,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
                     JSONArray jarr = myJob.getJSONArray("Result");
                     JSONObject innerJob = null;
 
+                    DB.deleteFromTable(TABLE_TAGS);
                     for (int i = 0; i < jarr.length(); i++) {
                         innerJob = jarr.getJSONObject(i);
 
@@ -179,6 +188,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
                     JSONArray jarr = myJob.getJSONArray("Result");
                     JSONObject innerJob = null;
 
+                    DB.deleteFromTable(TABLE_SUPPLIER_DETAILS);
                     for (int i = 0; i < jarr.length(); i++) {
                         innerJob = jarr.getJSONObject(i);
 
@@ -209,6 +219,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
                     JSONArray jarr = myJob.getJSONArray("Result");
                     JSONObject innerJob = null;
 
+                    DB.deleteFromBrand();
                     for (int i = 0; i < jarr.length(); i++) {
                         innerJob = jarr.getJSONObject(i);
 
@@ -246,6 +257,11 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
                 JSONObject innerJob = null;
                 JSONObject outletJob = null;
 
+                DB.deleteFromTable(TABLE_PRODUCT_LIST);
+                DB.deleteFromTable(TABLE_OUTLETS_DETAILS);
+                DB.deleteFromTable(TABLE_TAX_DETAILS);
+                DB.deleteFromTable(TABLE_VARIENTS_DETAILS);
+
                 for (int i = 0; i < jarr.length(); i++) {
                     innerJob = jarr.getJSONObject(i);
 
@@ -270,6 +286,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
                             innerJob.getString("CreatedDate"));
 
                     JSONArray jarrOutlets = innerJob.getJSONArray("Outlets");
+
 
                     for (int j = 0; j < jarrOutlets.length(); j++) {
 
@@ -320,6 +337,9 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
             e.printStackTrace();
         }
         hideDelayIndicator();
+        Intent sInt = new Intent(this, MainActivity.class);
+        startActivity(sInt);
+        finish();
 
 
     }
@@ -332,7 +352,6 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
             String isError = job.getString("IsError");
             if (isError.equalsIgnoreCase("0")) {
                 noError = true;
-
             }
 
         } catch (Exception e) {

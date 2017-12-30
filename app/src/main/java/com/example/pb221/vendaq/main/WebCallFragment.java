@@ -45,6 +45,9 @@ public class WebCallFragment {
                 inputStreamData = inputStreamReader.read();
                 data += current;
             }
+
+            data = data.replace("null","\"\"");
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -52,7 +55,6 @@ public class WebCallFragment {
                 httpURLConnection.disconnect();
             }
         }
-        data = data.replace("null","");
         return data.toString();
     }
 

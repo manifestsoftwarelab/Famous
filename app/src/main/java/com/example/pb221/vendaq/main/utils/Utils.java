@@ -16,12 +16,19 @@ public class Utils {
     public static String loginUrl = baseUrl + "?action=GetAuthenticationData";
 
     public static String getSuppliers = baseUrl + "?action=GetSuppliers";
+    public static String addSuppliers = baseUrl + "?action=AddSuppliers";
+
     public static String addPriceBook = baseUrl + "?action=AddPriceBook";
     public static String getProducts = baseUrl + "?action=GetProducts";
     public static String getTags = baseUrl + "?action=GetTags";
     public static String getTypes = baseUrl + "?action=GetProductType";
     public static String getBrands = baseUrl + "?action=GetBrands";
     public static String addProducts = baseUrl + "?action=AddProduct";
+    public static String stockTransfer = baseUrl + "?action=NewStockTransfer";
+    public static String removeStock = baseUrl + "?action=RemoveStock";
+    public static String addStock = baseUrl + "?action=stockadd";
+    public static String addBrand = baseUrl + "?action=AddBrands";
+    public static String getStockControl = baseUrl + "?action=GetStockControl";
 
 
     public static String DATABASE_NAME = "VendaHQ.db";
@@ -99,6 +106,24 @@ public class Utils {
     public static String COLUMN_MARKUP = "Markup";
     public static String COLUMN_COUNT = "Count";
     public static String COLUMN_CREATED_DATE = "CreatedDate";
+
+    public static String TABLE_STOCK_LIST = "STOCK_LIST";
+
+    public static String COLUMN_STOCK_ID = "StockId";
+    public static String COLUMN_STOCK_NAME = "StockName";
+    public static String COLUMN_STOCK_USER_ID = "UserId";
+    public static String COLUMN_STOCK_TYPE = "StockType";
+    public static String COLUMN_STOCK_DATE = "Date";
+    public static String COLUMN_STOCK_DELIVERY_DATE = "DeliveryDate";
+    public static String COLUMN_STOCK_NUMBER = "Number";
+    public static String COLUMN_STOCK_OUTLET = "Outlet";
+    public static String COLUMN_STOCK_SOURCE = "Source";
+    public static String COLUMN_STOCK_STATUS = "Status";
+    public static String COLUMN_STOCK_ITEMS = "Items";
+    public static String COLUMN_STOCK_TOTALCOST = "TotalCost";
+    public static String COLUMN_STOCK_SKU = "SKU";
+    public static String COLUMN_STOCK_HANDLE = "Handle";
+    public static String COLUMN_STOCK_SUPPLIERCODE = "SupplierCode";
 
 
     public static void setAllTextView(Context context, ViewGroup parent) {

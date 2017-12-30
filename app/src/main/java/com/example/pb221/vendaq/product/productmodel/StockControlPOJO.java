@@ -6,109 +6,158 @@ package com.example.pb221.vendaq.product.productmodel;
 
 public class StockControlPOJO {
 
-    private  String stockItemName;
-    private  String stockItemType;
+    String StockId;
+    String StockName;
+    String UserId;
+    String StockType;
+    String Date;
+    String DeliveryDate;
+    String Number;
+    String Outlet;
+    String Source ;
+    String Status;
+    String Items;
+    String TotalCost;
+    String SKU;
+    String Handle;
+    String SupplierCode;
 
-    public String getStockItemName() {
-        return stockItemName;
+    public StockControlPOJO(String stockId, String stockName, String userId, String stockType, String date, String deliveryDate, String number, String outlet, String source, String status, String items, String totalCost, String SKU, String handle, String supplierCode) {
+        StockId = stockId;
+        StockName = stockName;
+        UserId = userId;
+        StockType = stockType;
+        Date = date;
+        DeliveryDate = deliveryDate;
+        Number = number;
+        Outlet = outlet;
+        Source = source;
+        Status = status;
+        Items = items;
+        TotalCost = totalCost;
+        this.SKU = SKU;
+        Handle = handle;
+        SupplierCode = supplierCode;
     }
 
-    public void setStockItemName(String stockItemName) {
-        this.stockItemName = stockItemName;
+    public String getStockId() {
+
+        return StockId;
     }
 
-    public String getStockItemType() {
-        return stockItemType;
+    public void setStockId(String stockId) {
+        StockId = stockId;
     }
 
-    public void setStockItemType(String stockItemType) {
-        this.stockItemType = stockItemType;
+    public String getStockName() {
+        return StockName;
     }
 
-    public String getStockItemDate() {
-        return stockItemDate;
+    public void setStockName(String stockName) {
+        StockName = stockName;
     }
 
-    public void setStockItemDate(String stockItemDate) {
-        this.stockItemDate = stockItemDate;
+    public String getUserId() {
+        return UserId;
     }
 
-    public String getStockItemDileveryDue() {
-        return stockItemDileveryDue;
+    public void setUserId(String userId) {
+        UserId = userId;
     }
 
-    public void setStockItemDileveryDue(String stockItemDileveryDue) {
-        this.stockItemDileveryDue = stockItemDileveryDue;
+    public String getStockType() {
+        return StockType;
     }
 
-    public String getStockItemNumber() {
-        return stockItemNumber;
+    public void setStockType(String stockType) {
+        StockType = stockType;
     }
 
-    public void setStockItemNumber(String stockItemNumber) {
-        this.stockItemNumber = stockItemNumber;
+    public String getDate() {
+        return Date;
     }
 
-    public String getStockItemOutlet() {
-        return stockItemOutlet;
+    public void setDate(String date) {
+        Date = date;
     }
 
-    public void setStockItemOutlet(String stockItemOutlet) {
-        this.stockItemOutlet = stockItemOutlet;
+    public String getDeliveryDate() {
+        return DeliveryDate;
     }
 
-    public String getStockItemSource() {
-        return stockItemSource;
+    public void setDeliveryDate(String deliveryDate) {
+        DeliveryDate = deliveryDate;
     }
 
-    public void setStockItemSource(String stockItemSource) {
-        this.stockItemSource = stockItemSource;
+    public String getNumber() {
+        return Number;
     }
 
-    public String getStockItemStatus() {
-        return stockItemStatus;
+    public void setNumber(String number) {
+        Number = number;
     }
 
-    public void setStockItemStatus(String stockItemStatus) {
-        this.stockItemStatus = stockItemStatus;
+    public String getOutlet() {
+        return Outlet;
     }
 
-    public String getStockItemItems() {
-        return stockItemItems;
+    public void setOutlet(String outlet) {
+        Outlet = outlet;
     }
 
-    public void setStockItemItems(String stockItemItems) {
-        this.stockItemItems = stockItemItems;
+    public String getSource() {
+        return Source;
     }
 
-    public String getStockItemTotalCost() {
-        return stockItemTotalCost;
+    public void setSource(String source) {
+        Source = source;
     }
 
-    public void setStockItemTotalCost(String stockItemTotalCost) {
-        this.stockItemTotalCost = stockItemTotalCost;
+    public String getStatus() {
+        return Status;
     }
 
-    private  String stockItemDate;
-    private  String stockItemDileveryDue;
-    private  String stockItemNumber;
-    private  String stockItemOutlet;
-
-    public StockControlPOJO(String stockItemName, String stockItemType, String stockItemDate, String stockItemDileveryDue, String stockItemNumber, String stockItemOutlet, String stockItemSource, String stockItemStatus, String stockItemItems, String stockItemTotalCost) {
-        this.stockItemName = stockItemName;
-        this.stockItemType = stockItemType;
-        this.stockItemDate = stockItemDate;
-        this.stockItemDileveryDue = stockItemDileveryDue;
-        this.stockItemNumber = stockItemNumber;
-        this.stockItemOutlet = stockItemOutlet;
-        this.stockItemSource = stockItemSource;
-        this.stockItemStatus = stockItemStatus;
-        this.stockItemItems = stockItemItems;
-        this.stockItemTotalCost = stockItemTotalCost;
+    public void setStatus(String status) {
+        Status = status;
     }
 
-    private  String stockItemSource;
-    private  String stockItemStatus;
-    private  String stockItemItems;
-    private  String stockItemTotalCost;
+    public String getItems() {
+        return Items;
+    }
+
+    public void setItems(String items) {
+        Items = items;
+    }
+
+    public String getTotalCost() {
+        return TotalCost;
+    }
+
+    public void setTotalCost(String totalCost) {
+        TotalCost = totalCost;
+    }
+
+    public String getSKU() {
+        return SKU;
+    }
+
+    public void setSKU(String SKU) {
+        this.SKU = SKU;
+    }
+
+    public String getHandle() {
+        return Handle;
+    }
+
+    public void setHandle(String handle) {
+        Handle = handle;
+    }
+
+    public String getSupplierCode() {
+        return SupplierCode;
+    }
+
+    public void setSupplierCode(String supplierCode) {
+        SupplierCode = supplierCode;
+    }
 }

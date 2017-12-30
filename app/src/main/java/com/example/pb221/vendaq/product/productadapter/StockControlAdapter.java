@@ -61,16 +61,16 @@ public class StockControlAdapter extends
     public void onBindViewHolder(StockControlAdapter.MyViewHolder holder, int position) {
         StockControlPOJO pList = stockControlList.get(position);
 
-        holder.tvItemName.setText(pList.getStockItemDate());
-        holder.tvItemType.setText(pList.getStockItemType());
-        holder.tvItemDate.setText(pList.getStockItemDate());
-        holder.tvItemDelieveryDue.setText(pList.getStockItemDileveryDue());
-        holder.tvItemNumber.setText(pList.getStockItemNumber());
-        holder.tvItemOutlet.setText(pList.getStockItemOutlet());
-        holder.tvItemSource.setText(pList.getStockItemSource());
-        holder.tvItemStatus.setText(pList.getStockItemStatus());
-        holder.tvItemItems.setText(pList.getStockItemItems());
-        holder.tvItemTotalCost.setText(pList.getStockItemTotalCost());
+        holder.tvItemName.setText(pList.getStockName());
+        holder.tvItemType.setText(pList.getStockType());
+        holder.tvItemDate.setText(pList.getDate());
+        holder.tvItemDelieveryDue.setText(pList.getDeliveryDate());
+        holder.tvItemNumber.setText(pList.getNumber());
+        holder.tvItemOutlet.setText(pList.getOutlet());
+        holder.tvItemSource.setText(pList.getSource());
+        holder.tvItemStatus.setText(pList.getStatus());
+        holder.tvItemItems.setText(pList.getItems());
+        holder.tvItemTotalCost.setText(pList.getTotalCost());
 
 
     }

@@ -27,10 +27,11 @@
                     android:text="Name/Reference" />
 
                 <EditText
-                    android:maxLines="1"
-
+                    android:id="@+id/nameEditText"
                     style="@style/dialogueEditTextStyle"
-                    android:text="Order-Sun 15 OCT 2017" />
+
+                    android:maxLines="1"
+                    android:text="" />
 
             </LinearLayout>
 
@@ -115,7 +116,7 @@
                     android:layout_height="match_parent"
                     android:text="Auto fill your order with products that have low cost levels(500 product max)."
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp" />
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
@@ -159,9 +160,12 @@
 
                 <EditText
                     android:maxLines="1"
-
+                    android:id="@+id/deliveryDueEditText"
                     style="@style/dialogueEditTextStyle"
-                    android:text="12/09/2017" />
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:text="" />
 
             </LinearLayout>
 
@@ -175,9 +179,9 @@
 
                 <EditText
                     android:maxLines="1"
-
+                    android:id="@+id/orderNoEditText"
                     style="@style/dialogueEditTextStyle"
-                    android:text="1234" />
+                    android:text="" />
 
             </LinearLayout>
 
@@ -191,9 +195,9 @@
 
                 <EditText
                     android:maxLines="1"
-
+                    android:id="@+id/supplierInvoiceEditText"
                     style="@style/dialogueEditTextStyle"
-                    android:text="All" />
+                    android:text="" />
 
             </LinearLayout>
 
@@ -223,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Auto fill your order with products that have low cost levels(500 product max)."
-                    android:textSize="18sp" />
+                    android:textSize="10sp" />
 
 
             </LinearLayout>

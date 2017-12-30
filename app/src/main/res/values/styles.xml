@@ -31,11 +31,11 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_gravity">top</item>
-        <item name="android:layout_marginBottom">40dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/rounded_blue_button</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">30dp</item>
+        <item name="android:textSize">25sp</item>
     </style>
 
     <style name="dialogueTextViewStyle">
@@ -47,7 +47,7 @@
 
     <style name="dialogueEditTextStyle">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:textSize">20dp</item>
         <item name="android:background">@drawable/blue_border</item>
         <item name="android:layout_marginBottom">10dp</item>
@@ -100,12 +100,12 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_gravity">top</item>
-        <item name="android:layout_marginBottom">40dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_marginLeft">20dp</item>
         <item name="android:background">@drawable/rounded_orange_button</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">30dp</item>
+        <item name="android:textSize">25sp</item>
     </style>
 
     <style name="TitleTextStyle" parent="AppTheme">
