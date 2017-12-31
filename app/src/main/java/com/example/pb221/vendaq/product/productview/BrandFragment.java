@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.pb221.vendaq.main.BaseFragment;
 import com.example.pb221.vendaq.main.DatabaseHelper;
 import com.example.pb221.vendaq.main.MyApplication;
 import com.example.pb221.vendaq.main.WebCallFragment;
@@ -36,7 +37,7 @@ import static com.example.pb221.vendaq.main.utils.Utils.getBrands;
  * Created by pb221 on 29-10-2017.
  */
 
-public class BrandFragment extends Fragment {
+public class BrandFragment extends BaseFragment {
 
     public String result = "";
     DatabaseHelper DB;
@@ -111,11 +112,21 @@ public class BrandFragment extends Fragment {
         btnAdd_Brand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if ((brandName.getText().toString() != null && !brandName.getText().toString().isEmpty()) && (description.getText().toString() != null && !description.getText().toString().isEmpty()))
+                {
 
-                sendJsonToWebService(brandName.getText().toString(),description.getText().toString());
-                dialog.dismiss();
-                sendJsonToWebService("4");
+                    sendJsonToWebService(brandName.getText().toString(), description.getText().toString());
+                    dialog.dismiss();
+                    sendJsonToWebService("4");
+                    brandName.setText("", EditText.BufferType.EDITABLE);
+                    description.setText("",EditText.BufferType.EDITABLE);
+                }
+                     else
+                    {
+                        showAlert("","All fields required");
+                    }
             }
+
         });
 
         btnAddBrand.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +141,7 @@ public class BrandFragment extends Fragment {
 
     private void sendJsonToWebService(String catId) {
 
+        showDelayIndicator();
         final JSONObject job = new JSONObject();
 
         try {
@@ -193,6 +205,7 @@ public class BrandFragment extends Fragment {
                     BrandAdapter(brandList, getActivity());
             recyclerViewProductList.setAdapter(brandListAdapter);
 
+            hideDelayIndicator();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -203,6 +216,7 @@ public class BrandFragment extends Fragment {
 
     private void sendJsonToWebService(String brandName, String brandDescription) {
 
+        showDelayIndicator();
         final JSONObject job = new JSONObject();
 
         try {

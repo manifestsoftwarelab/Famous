@@ -25,6 +25,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.pb221.vendaq.R;
+import com.example.pb221.vendaq.main.BaseActivity;
+import com.example.pb221.vendaq.main.BaseFragment;
 import com.example.pb221.vendaq.main.DatabaseHelper;
 import com.example.pb221.vendaq.main.MyApplication;
 import com.example.pb221.vendaq.main.WebCallFragment;
@@ -53,7 +55,7 @@ import static com.example.pb221.vendaq.main.utils.Utils.getStockControl;
  * Created by pb221 on 29-10-2017.
  */
 
-public class StockControlFragment extends Fragment {
+public class StockControlFragment extends BaseFragment {
 
     public StockControlAdapter stockControlListAdapter;
     private List<StockControlPOJO> stockControlPOJOList;
@@ -106,7 +108,7 @@ public class StockControlFragment extends Fragment {
 
         getActivity().setTitle("Stock Control");
 
-        sendJsonToWebService("2");
+        sendJsonToWebService("1");
 
 
 
@@ -574,23 +576,5 @@ public class StockControlFragment extends Fragment {
     }
 
 
-    private void showAlert(String message, String title)
-    {
-        final AlertDialog.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);
-        } else {
-            builder = new AlertDialog.Builder(getActivity());
-        }
-        builder.setTitle(title)
-                .setMessage(message)
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-    }
+
 }

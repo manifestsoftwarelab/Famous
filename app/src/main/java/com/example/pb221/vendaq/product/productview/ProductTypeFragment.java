@@ -24,6 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_PRODUCT_TYPE;
 import static com.example.pb221.vendaq.main.utils.Utils.getTypes;
 
 /**
@@ -115,7 +116,7 @@ public class ProductTypeFragment extends Fragment {
         try {
             JSONArray jarr = job.getJSONArray("Result");
             JSONObject innerJob = null;
-
+            DB.deleteFromTable(TABLE_PRODUCT_TYPE);
             for (int i = 0; i < jarr.length(); i++) {
                 innerJob = jarr.getJSONObject(i);
 

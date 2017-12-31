@@ -69,6 +69,7 @@ public class PriceBookFragment extends Fragment {
 
 /* product adapter list*/
 
+
         PriceBooksPOJO priceBookPOJO1 = new PriceBooksPOJO("General Price Book(All Products)", "All Customers", "All Outlet", "12/08/2017", "12/09/2017", "27 Sep 2017 1:47 pm");
         PriceBooksPOJO priceBookPOJO2 = new PriceBooksPOJO("General Price Book(All Products)", "All Customers", "All Outlet", "12/08/2017", "12/09/2017", "27 Sep 2017 1:47 pm");
         PriceBooksPOJO priceBookPOJO3 = new PriceBooksPOJO("General Price Book(All Products)", "All Customers", "All Outlet", "12/08/2017", "12/09/2017", "27 Sep 2017 1:47 pm");

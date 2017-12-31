@@ -33,6 +33,7 @@
 
 
             <Button
+                android:id="@+id/add_Tag_Button"
                 style="@style/buttonSelectedStyle"
                 android:background="@drawable/rounded_orange_button"
                 android:padding="10dp"

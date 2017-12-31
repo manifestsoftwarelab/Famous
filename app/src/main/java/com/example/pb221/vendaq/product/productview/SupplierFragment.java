@@ -25,6 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.pb221.vendaq.main.utils.Utils.TABLE_SUPPLIER_DETAILS;
 import static com.example.pb221.vendaq.main.utils.Utils.getSuppliers;
 
 /**
@@ -121,6 +122,8 @@ public class SupplierFragment extends Fragment implements FragmentDataObserver {
             JSONArray jarr = job.getJSONArray("Result");
             JSONObject innerJob = null;
 
+
+            DB.deleteFromTable(TABLE_SUPPLIER_DETAILS);
             for (int i = 0; i < jarr.length(); i++) {
                 innerJob = jarr.getJSONObject(i);
 
