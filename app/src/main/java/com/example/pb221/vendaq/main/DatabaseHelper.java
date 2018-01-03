@@ -16,6 +16,7 @@ import static com.example.pb221.vendaq.main.utils.Utils.TABLE_BRANDS_DETAILS;
 
 import com.example.pb221.vendaq.product.productmodel.BrandPOJO;
 import com.example.pb221.vendaq.product.productmodel.OutletsPOJONew;
+import com.example.pb221.vendaq.product.productmodel.PriceBooksPOJO;
 import com.example.pb221.vendaq.product.productmodel.ProductPOJONew;
 import com.example.pb221.vendaq.product.productmodel.StockControlPOJO;
 import com.example.pb221.vendaq.product.productmodel.SupplierPOJO;
@@ -177,6 +178,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Log.d("onCreate ", "onCreate: " + CREATE_STOCK_LIST);
         db.execSQL(CREATE_STOCK_LIST);
+
+            String CREATE_PRICEBOOK_LIST = "CREATE TABLE " + TABLE_PRICEBOOK_LIST + " ("
+                    + COLUMN_PRICEBOOK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + COLUMN_PRICEBOOK_NAME + " TEXT, "
+                    + COLUMN_CUSTOMER_GROUP + " TEXT, "
+                    + COLUMN_OUTLET + " TEXT, "
+                    + COLUMN_VALID_FROM + " TEXT, "
+                    + COLUMN_VALID_TO + " TEXT, "
+                    + COLUMN_CREATED_AT + " TEXT )";
+
+            Log.d("onCreate ", "onCreate: " + CREATE_PRICEBOOK_LIST);
+            db.execSQL(CREATE_PRICEBOOK_LIST);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -730,6 +745,66 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return stockList;
     }
+
+
+    public void insertIntoPriceBook(String PriceBookId, String PriceBookName, String CustomerGroup,String Outlet, String ValidFrom, String ValidTo, String CreatedAt) {
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valuess = new ContentValues();
+
+        valuess.put(COLUMN_PRICEBOOK_ID, PriceBookId);
+        valuess.put(COLUMN_PRICEBOOK_NAME, PriceBookName);
+        valuess.put(COLUMN_CUSTOMER_GROUP, CustomerGroup);
+        valuess.put(COLUMN_OUTLET, Outlet);
+        valuess.put(COLUMN_VALID_FROM , ValidFrom);
+        valuess.put(COLUMN_VALID_TO, ValidTo);
+        valuess.put(COLUMN_CREATED_AT, CreatedAt);
+
+        db.insert(TABLE_PRICEBOOK_LIST, null, valuess);
+        db.close();
+        Log.e("***insertIntoTable***", "insertion successfully");
+    }
+
+    public List getAllPriceBookList(String id) {
+
+        List<PriceBooksPOJO> priceList = new ArrayList<>();
+        PriceBooksPOJO priceBookPOJO;
+        SQLiteDatabase db = this.getReadableDatabase();
+//        String query = "SELECT  * FROM " + TABLE_SUPPLIER_DETAILS + " WHERE PRODUCT_ID = '" + id + "'";
+        String query = "SELECT  * FROM " + TABLE_PRICEBOOK_LIST;
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor != null) {
+            Log.d("EMessanger..", "Reading Records");
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+
+                String PriceBookId = cursor.getString(cursor.getColumnIndex(COLUMN_PRICEBOOK_ID));
+                String PriceBookName = cursor.getString(cursor.getColumnIndex(COLUMN_PRICEBOOK_NAME));
+                String CustomerGroup = cursor.getString(cursor.getColumnIndex(COLUMN_CUSTOMER_GROUP));
+                String Outlet = cursor.getString(cursor.getColumnIndex(COLUMN_OUTLET));
+                String ValidGrom = cursor.getString(cursor.getColumnIndex(COLUMN_VALID_FROM));
+                String ValidTo = cursor.getString(cursor.getColumnIndex(COLUMN_VALID_TO));
+                String CreatedAt = cursor.getString(cursor.getColumnIndex(COLUMN_CREATED_AT));
+
+                priceBookPOJO = new PriceBooksPOJO(PriceBookId,PriceBookName,CustomerGroup,Outlet,ValidGrom,ValidTo,CreatedAt);
+
+                priceList.add(priceBookPOJO);
+
+                cursor.moveToNext();
+
+            }
+
+        } else {
+            Log.d("EMessanger..", "Cursor is null");
+        }
+        return priceList;
+    }
+
+
+
+
 
     public void deleteFromStockControl()
     {

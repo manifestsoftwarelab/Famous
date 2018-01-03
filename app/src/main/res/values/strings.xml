@@ -166,6 +166,28 @@
     <string name="str_key_supplierInvoice">SupplierInvoice</string>
     <string name="str_key_autoFill">AutoFill</string>
 
+
+    <string name="str_key_supliername">SupplierName</string>
+    <string name="str_key_markup">MarkUp</string>
+    <string name="str_key_description">Description</string>
+    <string name="str_key_firstname">FirstName</string>
+    <string name="str_key_lastname">LastName</string>
+    <string name="str_key_company">Company</string>
+    <string name="str_key_email">Email</string>
+    <string name="str_key_phone">Phone</string>
+    <string name="str_key_mobile">Mobile</string>
+    <string name="str_key_fax">Fax</string>
+    <string name="str_key_website">Website</string>
+    <string name="str_key_twitter">Twitter</string>
+    <string name="str_key_street1">Street1</string>
+    <string name="str_key_street2">Street2</string>
+    <string name="str_key_suburb">Suburb</string>
+    <string name="str_key_state">state</string>
+    <string name="str_key_postcode">postcode</string>
+    <string name="str_key_country">country</string>
+    <string name="str_key_ispostaladdress">IsPostalAddress</string>
+
+
     <string name="delay_ind_retrieving_data">Retriving Data</string>
     <!--<string name="str_key_username">username</string>-->
 

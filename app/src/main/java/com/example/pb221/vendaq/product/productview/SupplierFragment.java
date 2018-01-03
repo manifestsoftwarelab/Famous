@@ -2,17 +2,20 @@ package com.example.pb221.vendaq.product.productview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.pb221.vendaq.R;
+import com.example.pb221.vendaq.main.BaseFragment;
 import com.example.pb221.vendaq.main.DatabaseHelper;
-import com.example.pb221.vendaq.main.FragmentDataObserver;
 import com.example.pb221.vendaq.main.MyApplication;
 import com.example.pb221.vendaq.main.WebCallFragment;
 import com.example.pb221.vendaq.product.productadapter.SupplierAdapter;
@@ -32,13 +35,14 @@ import static com.example.pb221.vendaq.main.utils.Utils.getSuppliers;
  * Created by pb221 on 29-10-2017.
  */
 
-public class SupplierFragment extends Fragment implements FragmentDataObserver {
+public class SupplierFragment extends BaseFragment {
     public String result = "";
     DatabaseHelper DB;
     public SupplierAdapter supplierListAdapter;
     private List<SupplierPOJO> supplierList;
     private RecyclerView recyclerViewProductList;
-
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     @Nullable
     @Override
@@ -47,7 +51,7 @@ public class SupplierFragment extends Fragment implements FragmentDataObserver {
         recyclerViewProductList = (RecyclerView) v.findViewById(R.id.recyclerViewProductList);
         DB = MyApplication.getInstance(getActivity());
         getActivity().setTitle("Suppliers");
-
+        Button addsupplierBtn = (Button) v.findViewById(R.id.add_suppliers_button);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -56,6 +60,12 @@ public class SupplierFragment extends Fragment implements FragmentDataObserver {
 
         supplierList = new ArrayList<>();
         sendJsonToWebService("1");
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        final int width = metrics.widthPixels;
+        final int height = metrics.heightPixels;
+
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
 
 /* product adapter list*/
 
@@ -74,6 +84,18 @@ public class SupplierFragment extends Fragment implements FragmentDataObserver {
         recyclerViewProductList.setAdapter(supplierListAdapter);*/
 
         /* product adapter list*/
+
+        addsupplierBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AddSupplierFragment fragmentSupplier = new AddSupplierFragment();
+                fragmentTransaction.replace(R.id.frameLayoutcontainer, fragmentSupplier, "Add Supplier");
+                fragmentTransaction.commit();
+
+            }
+        });
+
 
         return v;
     }

@@ -5,18 +5,13 @@ package com.example.pb221.vendaq.product.productmodel;
  */
 
 public class PriceBooksPOJO {
-    private String priceBookName;
-
-    public PriceBooksPOJO(String priceBookName, String priceBookCustomerGroup, String priceBookOutlet, String priceBookValidFromDate, String priceBookValidToDate, String priceBookCreateDate) {
-        this.priceBookName = priceBookName;
-        this.priceBookCustomerGroup = priceBookCustomerGroup;
-        this.priceBookOutlet = priceBookOutlet;
-        this.priceBookValidFromDate = priceBookValidFromDate;
-        this.priceBookValidToDate = priceBookValidToDate;
-        this.priceBookCreateDate = priceBookCreateDate;
+    public String getPriceBookId() {
+        return priceBookId;
     }
 
-    private String priceBookCustomerGroup;
+    public void setPriceBookId(String priceBookId) {
+        this.priceBookId = priceBookId;
+    }
 
     public String getPriceBookName() {
         return priceBookName;
@@ -66,8 +61,22 @@ public class PriceBooksPOJO {
         this.priceBookCreateDate = priceBookCreateDate;
     }
 
+    private String priceBookId;
+    private String priceBookName;
+    private String priceBookCustomerGroup;
     private String priceBookOutlet;
     private String priceBookValidFromDate;
     private String priceBookValidToDate;
     private String priceBookCreateDate;
+
+
+    public PriceBooksPOJO(String priceBookId, String priceBookName, String priceBookCustomerGroup, String priceBookOutlet, String priceBookValidFromDate, String priceBookValidToDate, String priceBookCreateDate) {
+        this.priceBookId = priceBookId;
+        this.priceBookName = priceBookName;
+        this.priceBookCustomerGroup = priceBookCustomerGroup;
+        this.priceBookOutlet = priceBookOutlet;
+        this.priceBookValidFromDate = priceBookValidFromDate;
+        this.priceBookValidToDate = priceBookValidToDate;
+        this.priceBookCreateDate = priceBookCreateDate;
+    }
 }

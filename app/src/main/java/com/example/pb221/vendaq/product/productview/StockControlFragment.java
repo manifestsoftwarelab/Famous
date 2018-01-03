@@ -343,7 +343,7 @@ public class StockControlFragment extends BaseFragment {
             public void onClick(View v) {
                 final Dialog dialog = new Dialog(getActivity());
                 // Include dialog.xml file
-                dialog.setContentView(R.layout.dialog_new_price_book);
+                dialog.setContentView(R.layout.dialog_new_stock_transfer);
                 // Set dialog title
                 dialog.setTitle("New Stock Transfer");
 

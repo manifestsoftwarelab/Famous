@@ -29,6 +29,8 @@ public class Utils {
     public static String addStock = baseUrl + "?action=stockadd";
     public static String addBrand = baseUrl + "?action=AddBrands";
     public static String getStockControl = baseUrl + "?action=GetStockControl";
+    public static String addSupplier = baseUrl + "?action=AddSuppliers";
+    public static String getPriceBook = baseUrl + "?action=GetPriceBooks";
 
 
     public static String DATABASE_NAME = "VendaHQ.db";
@@ -124,6 +126,16 @@ public class Utils {
     public static String COLUMN_STOCK_SKU = "SKU";
     public static String COLUMN_STOCK_HANDLE = "Handle";
     public static String COLUMN_STOCK_SUPPLIERCODE = "SupplierCode";
+
+    public static String TABLE_PRICEBOOK_LIST = "PRICEBOOK_LIST";
+
+    public static String COLUMN_PRICEBOOK_ID = "PricebookId";
+    public static String COLUMN_PRICEBOOK_NAME = "PriceBookName";
+    public static String COLUMN_CUSTOMER_GROUP = "CustomerGroup";
+    public static String COLUMN_OUTLET = "Outlet";
+    public static String COLUMN_VALID_FROM = "ValidFrom";
+    public static String COLUMN_VALID_TO = "ValidTo";
+    public static String COLUMN_CREATED_AT = "CreatedAt";
 
 
     public static void setAllTextView(Context context, ViewGroup parent) {

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:id="@+id/baseLinear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/verticalPart1"
+                style="@style/dialogueVerticalLayoutStyle">
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal1"
+                    style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:layout_marginTop="10dp"
+                        android:text="Supplier Name" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/supplierNameEditText"
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal2"
+                    style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Description" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/descriptionEditText"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal3"
+                    style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Last name" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/lastNameEditText"
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal4"
+                    style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Email" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/emailEditText"
+
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal5"
+                    style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Mobile" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/mobileEditText"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal6"
+                    style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Website" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/websiteEditText"
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Street" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/street1EditText"
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Suburb" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/suburbEditText"
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/dialogueLeftLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="State" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/stateEditText"
+                        android:maxLines="1"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/dialogueButtonLinearLayoutStyle"
+                    android:visibility="invisible">
+
+                    <LinearLayout
+                        android:id="@+id/verticalPart8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+
+                        <Button
+                            android:id="@+id/Button01"
+                            style="@style/dialogueBottomBlueButtonStyle"></Button>
+
+                        <Button
+                            android:id="@+id/Button02"
+                            style="@style/dialogueBottomOrangeButtonStyle"></Button>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/verticalPart2"
+                style="@style/dialogueVerticalLayoutStyle">
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal7"
+                    style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:layout_marginTop="10dp"
+                        android:text="Default Markup" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/markupEditText"
+                        android:inputType="number"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal8"
+                    style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="First name" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/firstNameEditText"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal9"
+                    style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Company" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/companyEditText"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal10"
+                    style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Phone" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:inputType="number"
+                        android:id="@+id/phoneEditText"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal11"
+                    style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Fax" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/faxText"
+                        android:text="" />
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Twitter" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/twitterEditText"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Street" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/street2EditText"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Postcode" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/postCodeEditText"
+                        android:inputType="number"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/dialogueRightLayoutStyle">
+
+                    <TextView
+                        style="@style/dialogueTextViewStyle"
+                        android:text="Country" />
+
+                    <EditText
+                        style="@style/dialogueSupplierEditTextStyle"
+                        android:id="@+id/countryEditText"
+                        android:text="" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/innerHorizontal12"
+                    style="@style/dialogueButtonLinearLayoutStyle">
+
+                    <LinearLayout
+                        android:id="@+id/verticalPart3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/cancelBtn"
+                            style="@style/dialogueBottomBlueButtonStyle"
+                            android:text="Cancel"></Button>
+
+                        <Button
+                            android:id="@+id/saveBtn"
+                            style="@style/dialogueBottomOrangeButtonStyle"
+                            android:text="Save"></Button>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

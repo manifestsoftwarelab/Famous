@@ -30,7 +30,7 @@
                     android:id="@+id/edtPriceBook"
                     style="@style/dialogueEditTextStyle"
 
-                    android:hint="Order-Sun 15 OCT 2017"
+                    android:hint=""
                     android:maxLines="1" />
 
             </LinearLayout>
@@ -150,7 +150,10 @@
                 <EditText
                     android:id="@+id/edtValidFrom"
                     style="@style/dialogueEditTextStyle"
-                    android:hint="12/09/2017" />
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:hint="" />
 
             </LinearLayout>
 
@@ -166,8 +169,10 @@
                     android:id="@+id/edtValidTo"
 
                     style="@style/dialogueEditTextStyle"
-
-                    android:hint="1234"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:hint=""
                     android:maxLines="1" />
 
             </LinearLayout>
