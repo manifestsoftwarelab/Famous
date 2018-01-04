@@ -49,6 +49,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
     private String result;
     String product_id;
     private EditText edtUserName;
+    private EditText edtCompany;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
 
         initview();
         DB = MyApplication.getInstance(this);
-        sendJsonToWebService(edtUserName.getText().toString(), edtPassword.getText().toString(), "koncept_kkd");
+      //  sendJsonToWebService(edtUserName.getText().toString(), edtPassword.getText().toString(), "koncept_kkd");
 
 //        Intent sInt = new Intent(LoginActivity.this, MainActivity.class);
 //        startActivity(sInt);
@@ -69,11 +70,12 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
             public void onClick(View v) {
                 String username = edtUserName.getText().toString();
                 String password = edtPassword.getText().toString();
+                String company =  edtCompany.getText().toString();
                 if (!username.equals("") && !password.equals("")) {
                     sendJsonToWebService(edtUserName.getText().toString(), edtPassword.getText().toString(), "koncept_kkd");
 
                 } else
-                    Toast.makeText(LoginActivity.this, "username and password fields cannot be blank",
+                    Toast.makeText(LoginActivity.this, "Company , Username and Password fields cannot be blank",
                             Toast.LENGTH_LONG).show();
 
             }
@@ -84,6 +86,7 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         edtPassword = (EditText) findViewById(R.id.edtPassword);
         edtUserName = (EditText) findViewById(R.id.edtUserName);
+        edtCompany = (EditText) findViewById(R.id.companyEditText);
     }
 
     private void sendJsonToWebService(String username, String password, String storeName) {
@@ -113,6 +116,16 @@ public class LoginActivity extends BaseActivity implements IAllDataObserver {
             String isError = job.getString("IsError");
             if (isError.equalsIgnoreCase("0")) {
                 updateUI();
+            }
+            else
+            {
+                edtCompany.setText("");
+                edtUserName.setText("");
+                edtPassword.setText("");
+                hideDelayIndicator();
+                String errorMessage = job.getString("ErrorMessage");
+                Toast.makeText(LoginActivity.this, errorMessage,
+                        Toast.LENGTH_LONG).show();
             }
 
         } catch (Exception e) {

@@ -57,6 +57,8 @@ public class ProductListFragment extends Fragment {
     private String[] productType;
 
 
+
+
     private List<ProductPOJONew> productList;
     private List<OutletsPOJONew> outletList;
     private RecyclerView recyclerViewProductList;

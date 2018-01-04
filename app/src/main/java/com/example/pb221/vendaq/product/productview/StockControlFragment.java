@@ -352,8 +352,8 @@ public class StockControlFragment extends BaseFragment {
 
                 dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_orange_button);
 
-                Spinner spinner1 = (Spinner) dialog.findViewById(R.id.spinner1);
-                Spinner spinner2 = (Spinner) dialog.findViewById(R.id.spinner2);
+           //     Spinner spinner1 = (Spinner) dialog.findViewById(R.id.spinner1);
+           //     Spinner spinner2 = (Spinner) dialog.findViewById(R.id.spinner2);
 
                 Button btnCancel = (Button) dialog.findViewById(R.id.Button03);
                 Button btnSave = (Button) dialog.findViewById(R.id.Button04);
@@ -374,7 +374,7 @@ public class StockControlFragment extends BaseFragment {
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, values);
                 adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-                spinner1.setAdapter(adapter);
+             /*   spinner1.setAdapter(adapter);
                 spinner2.setAdapter(adapter);
 
 
@@ -399,7 +399,7 @@ public class StockControlFragment extends BaseFragment {
 
                     }
                 });
-
+                */
 
                 // set values for custom dialog components - text, image and button
 
